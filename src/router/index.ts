@@ -1,11 +1,23 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import ShipsStacked from "../views/ShipsStacked.vue";
+import MarketView from "../views/MarketView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: "/shipsstacked",
+    name: "SCORE",
+    component: ShipsStacked,
+  },
+  {
+    path: "/market",
+    name: "Market",
+    component: MarketView,
   },
   {
     path: "/about",

@@ -1,8 +1,6 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <!--   <CoingeckoFeed></CoingeckoFeed>-->
+  <NavigationBar></NavigationBar>
   <router-view />
 </template>
 
@@ -28,3 +26,15 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+
+<script setup lang="ts"></script>
+
+<script lang="ts">
+import NavigationBar from "./components/NavigationBar.vue";
+
+export default {
+  components: {
+    NavigationBar,
+  },
+};
+</script>
