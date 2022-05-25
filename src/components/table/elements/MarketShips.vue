@@ -1,47 +1,34 @@
 <template>
-  <div>
-    <table class="min-w-full">
-      <thead class="border-b">
+  <div class="overflow-x-auto">
+    <table class="table w-full">
+      <!-- head -->
+      <thead>
         <tr>
-          <th
-            scope="col"
-            class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-          >
-            <p class="uppercase">{{ saStore.asset_type_selected }}</p>
+          <th>{{ saStore.asset_type_selected }}</th>
+          <th>VWAP</th>
+          <th>
+            <div class="flex flex-row space-x-2">
+              <p>ATLAS</p>
+              <img src="tokens/ICON_ATLAS.webp" width="20" />
+            </div>
           </th>
-          <th
-            scope="col"
-            class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-          >
-            First
+          <th>
+            <div class="flex flex-row space-x-2">
+              <p>USDC</p>
+              <img src="tokens/ICON_USDC.webp" width="20" />
+            </div>
           </th>
-          <th
-            scope="col"
-            class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-          >
-            Last
-          </th>
-          <th
-            scope="col"
-            class="text-sm font-medium text-gray-900 px-6 py-4 text-left"
-          >
-            Handle
-          </th>
+          <th>Ask vs. VWAP</th>
+          <th>Bid vs. VWAP</th>
+          <th>APR</th>
         </tr>
       </thead>
       <tbody>
         <!-- Table ROW AUTO -->
-        <tr
-          v-for="nft in saStore.assets_selected"
-          :key="nft._id"
-          :nft="nft"
-          class="bg-white border-b"
-        >
-          <td
-            class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"
-          >
+        <tr v-for="nft in saStore.assets_selected" :key="nft._id" :nft="nft">
+          <td>
             <TableElementAsset
-              class="flex-shrink-0 h-10 w-10"
+              class=""
               :name="nft.name"
               :type="nft.attributes.make"
               :img_src="'sa_images/webp/' + nft._id + '.webp'"

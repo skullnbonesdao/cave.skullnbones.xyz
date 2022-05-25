@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-blue-200 rounded-md px-2 shadow-xl ring-1">
+  <div class="rounded-md px-2 shadow-xl ring-1">
     <ul
       id="tabs-tabFill"
       class="nav nav-tabs flex flex-col md:flex-row flex-wrap list-none border-b-0 pl-0 mb-4"

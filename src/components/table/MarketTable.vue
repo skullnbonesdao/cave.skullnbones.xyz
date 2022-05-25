@@ -1,15 +1,7 @@
 <template>
   <div class="mx-3 rounded-md shadow-xl ring-1">
     <TabNavigation></TabNavigation>
-    <div class="flex flex-col">
-      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
-          <div class="overflow-hidden">
-            <MarketShips></MarketShips>
-          </div>
-        </div>
-      </div>
-    </div>
+    <MarketShips></MarketShips>
   </div>
 </template>
 

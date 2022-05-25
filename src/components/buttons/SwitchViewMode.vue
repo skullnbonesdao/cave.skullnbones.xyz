@@ -1,4 +1,5 @@
 <template>
+  <div class="form-check form-switch"></div>
   <div>
     <div class="flex justify-center">
       <div class="form-check form-switch">
@@ -7,6 +8,8 @@
           type="checkbox"
           role="switch"
           id="flexSwitchCheckDefault"
+          data-toggle-theme="dark,light"
+          data-act-class="ACTIVECLASS"
           @click="switch_view_mode"
         />
       </div>
@@ -26,6 +29,7 @@ export default {
       } else {
         document.documentElement.classList.remove("dark");
       }
+      console.log(document);
     },
   },
   mounted() {
