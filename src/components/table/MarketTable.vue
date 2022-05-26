@@ -1,6 +1,7 @@
 <template>
   <div class="mx-3 rounded-md shadow-xl ring-1">
     <TabNavigation></TabNavigation>
+
     <MarketShips></MarketShips>
   </div>
 </template>
@@ -13,6 +14,7 @@ const saStore = staratlasStore();
 onMounted(async () => {
   await saStore.fetchData();
   console.log(saStore.asset_types);
+  await saStore.initWebSocket();
 });
 </script>
 

@@ -1,9 +1,9 @@
 <template>
-  <div class="flex space-x-2">
-    <p class="text-sm">{{ side }}</p>
-    <div>
-      <p class="text-base">111.111USDC</p>
-      <p class="text-base">111.111ATLAS</p>
+  <div class="flex flex-row space-x-2">
+    <p class="basis-1/2 text-sm">{{ side }}</p>
+    <div class="basis-1/2 text-right">
+      <p class="text-base">{{ value_usdc ? value_usdc : "-" }} USDC</p>
+      <p class="text-base">{{ value_atlas ? value_atlas : "-" }} ATLAS</p>
     </div>
   </div>
 </template>

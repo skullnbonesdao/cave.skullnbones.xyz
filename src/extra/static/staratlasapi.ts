@@ -1,3 +1,9 @@
+import {
+  Percentages,
+  Rates,
+  StarAlasWSQuote,
+} from "@/extra/static/staratlaswsquote";
+
 export interface Media {
   qrInstagram: string;
   qrFacebook: string;
@@ -15,12 +21,20 @@ export interface Attributes {
   score: number;
   rarity: string;
   musician: string;
+  spec: string;
+  make: string;
+  model: string;
+  unitLength: number;
+  unitWidth: number;
+  unitHeight: number;
 }
 
 export interface Markets {
   _id: string;
   id: string;
   quotePair: string;
+  dex: StarAlasWSQuote;
+  percentages?: Percentages;
 }
 
 export interface TradeSetting {
@@ -53,13 +67,14 @@ export interface APIData {
   totalSupply: number;
   mint: string;
   network: string;
-  tradeSettings: TradeSetting[];
+  tradeSettings: TradeSetting;
   airdrops: any[];
   primarySales: any[];
   updatedAt: string;
   collection: Collection;
   slots: Slot[];
   id: string;
+  rates: Rates;
 }
 
 /*

@@ -1,6 +1,6 @@
 <template>
   <div class="overflow-x-auto">
-    <table class="table w-full">
+    <table class="table table-zebra w-full">
       <!-- head -->
       <thead>
         <tr>
@@ -26,24 +26,95 @@
       <tbody>
         <!-- Table ROW AUTO -->
         <tr v-for="nft in saStore.assets_selected" :key="nft._id" :nft="nft">
-          <td>
-            <TableElementAsset
-              class=""
-              :name="nft.name"
-              :type="nft.attributes.make"
-              :img_src="'sa_images/webp/' + nft._id + '.webp'"
-            ></TableElementAsset>
-          </td>
+          <th>
+            <div class="flex flex-row space-x-2">
+              <div class="w-20">
+                <img
+                  class="rounded-md"
+                  :src="'sa_images/webp/' + nft._id + '.webp'"
+                />
+              </div>
+              <div class="flex flex-col text-left">
+                <p class="text-base">{{ nft.name }}</p>
+                <p class="text-xs">{{ nft.attributes.make }}</p>
+              </div>
+            </div>
+          </th>
           <td>
             <p class="text-sm">
               {{ parseFloat(nft.tradeSettings.vwap).toFixed(2) }}$
             </p>
           </td>
+
           <td>
-            <TableElementMarketPrices :side="'ASK'"></TableElementMarketPrices>
+            <TableElementMarketPrices
+              :side="'ASK'"
+              :value_usdc="
+                nft.markets[1]
+                  ? nft.markets[1].dex
+                    ? nft.markets[1].dex.bestAsk
+                      ? nft.markets[1].dex.bestAsk[0]
+                      : undefined
+                    : undefined
+                  : undefined
+              "
+              :value_atlas="
+                nft.markets[0]
+                  ? nft.markets[0].dex
+                    ? nft.markets[0].dex.bestAsk
+                      ? nft.markets[0].dex.bestAsk[0]
+                      : undefined
+                    : undefined
+                  : undefined
+              "
+            ></TableElementMarketPrices>
           </td>
           <td>
-            <TableElementMarketPrices :side="'Bid'"></TableElementMarketPrices>
+            <TableElementMarketPrices
+              :side="'Bid'"
+              :value_usdc="
+                nft.markets[1]
+                  ? nft.markets[1].dex
+                    ? nft.markets[1].dex.bestAsk
+                      ? nft.markets[1].dex.bestBid[0]
+                      : undefined
+                    : undefined
+                  : undefined
+              "
+              :value_atlas="
+                nft.markets[0]
+                  ? nft.markets[0].dex
+                    ? nft.markets[0].dex.bestAsk
+                      ? nft.markets[0].dex.bestBid[0]
+                      : undefined
+                    : undefined
+                  : undefined
+              "
+            ></TableElementMarketPrices>
+          </td>
+          <td>
+            <div v-if="nft.rates">
+              {{ parseFloat(nft.rates.ask_usdc * 100).toFixed(1) }} %
+            </div>
+            <div v-else>
+              <LoadingElement></LoadingElement>
+            </div>
+          </td>
+          <td>
+            <div v-if="nft.rates">
+              {{ parseFloat(nft.rates.bid_usdc * 100).toFixed(1) }} %
+            </div>
+            <div v-else>
+              <LoadingElement></LoadingElement>
+            </div>
+          </td>
+          <td>
+            <div v-if="nft.rates">
+              {{ parseFloat(nft.rates.apr * 100).toFixed(1) }} %
+            </div>
+            <div v-else>
+              <LoadingElement></LoadingElement>
+            </div>
           </td>
         </tr>
       </tbody>
@@ -58,15 +129,22 @@ const saStore = staratlasStore();
 </script>
 
 <script lang="ts">
-import TableElementAsset from "@/components/table/elements/TableElementAsset.vue";
 import TableElementMarketPrices from "@/components/table/elements/TableElemenMarketPrices.vue";
+import { APIData } from "@/extra/static/staratlasapi";
+import LoadingElement from "@/components/special/LoadingElement.vue";
 
 export default {
   name: "MarketShips.vue",
-  props: ["ships"],
+  props: {
+    value: {
+      type: [] as APIData[],
+      required: false,
+      default: null,
+    },
+  },
   components: {
-    TableElementAsset,
     TableElementMarketPrices,
+    LoadingElement,
   },
 };
 </script>

@@ -9,6 +9,7 @@
     </button>-->
   <NavigationBar></NavigationBar>
   <router-view />
+  <FooterComponent></FooterComponent>
 </template>
 
 <style>
@@ -22,10 +23,12 @@
 import NavigationBar from "./components/NavigationBar.vue";
 import { onMounted } from "vue";
 import { themeChange } from "theme-change";
+import FooterComponent from "@/components/FooterComponent";
 
 export default {
   components: {
     NavigationBar,
+    FooterComponent,
   },
   setup() {
     onMounted(() => {

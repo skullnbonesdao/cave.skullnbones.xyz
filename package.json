@@ -8,8 +8,10 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "async-sema": "^3.1.1",
     "core-js": "^3.8.3",
     "daisyui": "^2.15.1",
+    "epic-spinners": "^1.1.0",
     "pinia": "^2.0.14",
     "theme-change": "^2.0.2",
     "tw-elements": "^1.0.0-alpha12",
