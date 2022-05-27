@@ -47,6 +47,68 @@ export const staratlasStore = defineStore({
 
       await this.websocket.setup(market_addresses, this.marketCallback);
     },
+    sortData(entriesToSort: string, reverse: boolean, market_index: number) {
+      market_index = 1;
+      switch (entriesToSort) {
+        case "name":
+          this.assets_selected.sort(function (a, b) {
+            return a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
+          });
+          break;
+        case "vwap":
+          this.assets_selected.sort(function (a, b) {
+            return a.tradeSettings.vwap > b.tradeSettings.vwap
+              ? 1
+              : a.tradeSettings.vwap < b.tradeSettings.vwap
+              ? -1
+              : 0;
+          });
+          break;
+        case "ask":
+          console.log("ASK");
+          this.assets_selected.sort(function (a, b) {
+            const ap = a.markets[market_index].dex?.bestAsk
+              ? a.markets[market_index].dex?.bestAsk[0]
+              : 0 || 0;
+            const bp = b.markets[market_index].dex?.bestAsk
+              ? b.markets[market_index].dex?.bestAsk[0]
+              : 0 || 0;
+            return (ap || 0) - (bp || 0);
+          });
+          break;
+        case "bid":
+          console.log("BID");
+          this.assets_selected.sort(function (a, b) {
+            const ap = a.markets[market_index].dex?.bestBid
+              ? a.markets[market_index].dex?.bestBid[0]
+              : 0 || 0;
+            const bp = b.markets[market_index].dex?.bestBid
+              ? b.markets[market_index].dex?.bestBid[0]
+              : 0 || 0;
+            return (ap || 0) - (bp || 0);
+          });
+          break;
+        case "ask_usdc":
+          console.log("ask_usdc");
+          this.assets_selected
+            //.map((assets) => assets.markets[market_index].percentages?.ask_usdc)
+            .sort((a, b) => {
+              return (a.rates?.ask_usdc || 0) - (b.rates?.ask_usdc || 0);
+            });
+          break;
+        case "bid_usdc":
+          console.log("bid_usdc");
+          this.assets_selected
+            //.map((assets) => assets.markets[market_index].percentages?.ask_usdc)
+            .sort((a, b) => {
+              return (a.rates?.bid_usdc || 0) - (b.rates?.bid_usdc || 0);
+            });
+          break;
+      }
+      if (reverse) {
+        this.assets_selected.reverse();
+      }
+    },
     marketCallback(event: any) {
       const message = JSON.parse(event.data);
       if (!message) {
@@ -63,7 +125,7 @@ export const staratlasStore = defineStore({
                 this.assets[i].rates = calculateRates(
                   "all",
                   this.assets[i].markets[j].dex,
-                  this.assets[i].rates,
+                  this.assets[i].rates ? this.assets[i].rates : undefined,
                   this.assets[i].tradeSettings.vwap
                 );
               }

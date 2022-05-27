@@ -39,8 +39,8 @@
             </li>
             <li>
               <router-link class="router-link" to="/shipsstacked"
-                >Score</router-link
-              >
+                >Score
+              </router-link>
             </li>
           </ul>
         </div>
@@ -51,18 +51,36 @@
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
           <li>
-            <router-link class="router-link" to="/">Home</router-link>
+            <router-link
+              class="router-link"
+              v-bind:class="$route.name === 'home' ? ' active' : ''"
+              to="/"
+              >Home
+            </router-link>
           </li>
           <li>
-            <router-link class="router-link" to="/market">Market</router-link>
+            <router-link
+              class="router-link"
+              v-bind:class="$route.name === 'market' ? ' active' : ''"
+              to="/market"
+              >Market
+            </router-link>
           </li>
           <li>
-            <router-link class="router-link" to="/shipsstacked"
+            <router-link
+              class="router-link"
+              v-bind:class="$route.name === 'score' ? ' active' : ''"
+              to="/shipsstacked"
               >Score
             </router-link>
           </li>
           <li>
-            <router-link class="router-link" to="/about">About</router-link>
+            <router-link
+              class="router-link"
+              v-bind:class="$route.name === 'about' ? ' active' : ''"
+              to="/about"
+              >About
+            </router-link>
           </li>
         </ul>
       </div>

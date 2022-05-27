@@ -11,12 +11,12 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: "/shipsstacked",
-    name: "SCORE",
+    name: "score",
     component: ShipsStacked,
   },
   {
     path: "/market",
-    name: "Market",
+    name: "market",
     component: MarketView,
   },
   {

@@ -33,8 +33,7 @@ export interface Markets {
   _id: string;
   id: string;
   quotePair: string;
-  dex: StarAlasWSQuote;
-  percentages?: Percentages;
+  dex?: StarAlasWSQuote;
 }
 
 export interface TradeSetting {
@@ -74,7 +73,7 @@ export interface APIData {
   collection: Collection;
   slots: Slot[];
   id: string;
-  rates: Rates;
+  rates?: Rates;
 }
 
 /*

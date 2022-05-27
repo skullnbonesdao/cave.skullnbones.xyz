@@ -1,0 +1,74 @@
+<template>
+  <div class="flex flex-row space-x-2">
+    <div class="pt-1">{{ display_text }}</div>
+    <div class="space-y-0.5">
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="10px"
+        x="0px"
+        y="0px"
+        viewBox="0 0 512.001 512.001"
+        style="enable-background: new 0 0 512.001 512.001"
+        xml:space="preserve"
+        @click="clicked_up(entryToSort)"
+      >
+        <path
+          d="M505.749,304.918L271.083,70.251c-8.341-8.341-21.824-8.341-30.165,0L6.251,304.918C2.24,308.907,0,314.326,0,320.001
+			v106.667c0,8.619,5.184,16.427,13.163,19.712c7.979,3.307,17.152,1.472,23.253-4.629L256,222.166L475.584,441.75
+			c4.075,4.075,9.536,6.251,15.083,6.251c2.752,0,5.525-0.512,8.171-1.621c7.979-3.285,13.163-11.093,13.163-19.712V320.001
+			C512,314.326,509.76,308.907,505.749,304.918z"
+        />
+      </svg>
+      <svg
+        version="1.1"
+        id="Layer_1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        width="10px"
+        transform="rotate(180)"
+        x="0px"
+        y="0px"
+        viewBox="0 0 512.001 512.001"
+        style="enable-background: new 0 0 512.001 512.001"
+        xml:space="preserve"
+        @click="clicked_down(entryToSort)"
+      >
+        <path
+          d="M505.749,304.918L271.083,70.251c-8.341-8.341-21.824-8.341-30.165,0L6.251,304.918C2.24,308.907,0,314.326,0,320.001
+			v106.667c0,8.619,5.184,16.427,13.163,19.712c7.979,3.307,17.152,1.472,23.253-4.629L256,222.166L475.584,441.75
+			c4.075,4.075,9.536,6.251,15.083,6.251c2.752,0,5.525-0.512,8.171-1.621c7.979-3.285,13.163-11.093,13.163-19.712V320.001
+			C512,314.326,509.76,308.907,505.749,304.918z"
+        />
+      </svg>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import { staratlasStore } from "@/stores/staratlas";
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "TableElementHeaderSort",
+  props: ["display_text", "entryToSort"],
+  methods: {
+    clicked_up(event: string) {
+      this.saStore.sortData(event, false, 1);
+      console.log("clicked up");
+    },
+    clicked_down(event: string) {
+      this.saStore.sortData(event, true, 1);
+      console.log("clicked down");
+    },
+  },
+  setup() {
+    const saStore = staratlasStore();
+    return { saStore };
+  },
+});
+</script>
+
+<style scoped></style>
