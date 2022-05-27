@@ -6,7 +6,6 @@
       <p class="text-4xl">Market</p>
     </div>
     <div class="divider"></div>
-
     <MarketTable></MarketTable>
   </div>
 </template>

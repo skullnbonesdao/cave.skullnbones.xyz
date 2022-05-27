@@ -1,5 +1,13 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="flex flex-col w-full mt-3">
+    <div
+      class="justify-center mx-12 h-20 card bg-base-300 rounded-box place-items-center"
+    >
+      <p class="text-4xl">About</p>
+    </div>
+    <div class="divider"></div>
+    <div class="flex justify-center">
+      <h1>! under construction !</h1>
+    </div>
   </div>
 </template>

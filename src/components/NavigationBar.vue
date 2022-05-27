@@ -49,7 +49,7 @@
         >
       </div>
       <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal p-0">
+        <ul class="menu menu-horizontal p-0 space-x-2">
           <li>
             <router-link
               class="router-link"
