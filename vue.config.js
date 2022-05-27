@@ -3,6 +3,6 @@ module.exports = defineConfig({
   transpileDependencies: true,
   publicPath:
     process.env.NODE_ENV === "production"
-      ? "/" + process.env.CI_PROJECT_NAME + "/"
+      ? "/" + "cave.skullnbones.xyz" + "/"
       : "/",
 });
