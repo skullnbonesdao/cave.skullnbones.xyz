@@ -1,12 +1,5 @@
 <template>
-  <!--   <CoingeckoFeed></CoingeckoFeed>-->
-  <!--  <button
-      data-toggle-theme="dark,light"
-      data-act-class="ACTIVECLASS"
-      class="bg-blue-100"
-    >
-      dadas
-    </button>-->
+  <modal></modal>
   <NavigationBar></NavigationBar>
   <router-view />
   <FooterComponent></FooterComponent>
