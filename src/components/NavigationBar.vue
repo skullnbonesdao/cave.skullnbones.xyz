@@ -45,7 +45,7 @@
           </ul>
         </div>
         <a class="btn btn-ghost normal-case text-xl"
-          ><img src="snblogo.svg" alt="logo" width="50px" />SnB</a
+          ><img src="snblogo.svg" alt="logo" width="50px" />S&B</a
         >
       </div>
       <div class="navbar-center hidden lg:flex">

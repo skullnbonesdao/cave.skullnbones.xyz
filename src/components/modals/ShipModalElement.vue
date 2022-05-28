@@ -27,7 +27,7 @@
         </p>
       </div>
     </div>
-    <div class="flex flex-row pt-2">
+    <div class="flex flex-wrap justify-between space-y-2">
       <div>
         <p class="text-xs">
           {{
@@ -55,18 +55,51 @@
           </table>
         </div>
       </div>
+      <div class="flex flex-col border-2 rounded-md p-2">
+        <div
+          v-for="(obj, key) in saStore.assets.find(
+            (asset) => asset._id === asset_id
+          ).slots"
+          :key="obj"
+        >
+          <div class="text-center">
+            <h3 class="text-xl pb-2 capitalize">{{ key }}</h3>
+          </div>
+          <div>
+            <table class="table-auto">
+              <tbody>
+                <tr v-for="element in obj" :key="element" class="">
+                  <td class="text-sm capitalize">
+                    {{ element.type }}
+                  </td>
+                  <td class="text-xs capitalize">
+                    {{ element.size }}
+                  </td>
+                  <td class="text-xs capitalize">
+                    {{ element.quantity }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="flex flex-col pt-2">
-      <line-chart
-        :curve="false"
-        v-if="serumMarketData"
-        :data="serumMarketData.data"
-      ></line-chart>
-      <line-chart
-        :curve="false"
-        v-if="serumMarketData"
-        :data="serumMarketData.data"
-      ></line-chart>
+    <div class="flex flex-col pt-2" v-if="serumMarketData[1]">
+      <div v-for="smData in serumMarketData" :key="smData">
+        <h3 class="text-2xl">
+          {{
+            saStore.assets
+              .find((asset) => asset.id === asset_id)
+              .markets.find((market) => market.id === smData.id).quotePair
+          }}
+        </h3>
+        <line-chart
+          :curve="false"
+          v-if="smData"
+          :data="smData.data"
+        ></line-chart>
+      </div>
     </div>
 
     <div class="flex justify-center">
@@ -94,12 +127,11 @@ const markets = saStore.assets.find(
 const market_array = markets.map(function (market) {
   return market.id;
 });
-
-let serumMarketData = ref({});
-
 console.log(market_array);
 
 const saWS = new WS_StarAtlasMarket().trades(market_array, callback_chart_data);
+
+let serumMarketData = ref([]);
 
 function callback_chart_data(event) {
   const message = JSON.parse(event.data);
@@ -118,9 +150,9 @@ function callback_chart_data(event) {
     message.trades.map(function (trade) {
       data.data[trade.timestamp] = trade.price;
     });
+    data.id = message.market;
     console.log(data);
-
-    serumMarketData.value = data;
+    serumMarketData.value.push(data);
   }
 
   console.log("callback");

@@ -16,8 +16,7 @@
       >
     </div>
     <div v-else>
-      {{ type }}
-      {{ text }}
+      <span class="badge text-xs border-transparent">{{ text }}</span>
     </div>
   </div>
 </template>

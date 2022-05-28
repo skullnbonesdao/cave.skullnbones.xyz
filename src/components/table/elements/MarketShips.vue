@@ -65,37 +65,18 @@
             @click="clk_tableRow(nft._id)"
           >
             <th>
-              <div class="static flex flex-col items-center">
-                <div class="avatar">
-                  <div class="w-12 mask mask-hexagon">
-                    <img
-                      class="rounded-md"
-                      :src="'sa_images/webp/' + nft._id + '.webp'"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div class="absolute bottom-2">
-                <div class="badge">{{ nft.symbol }}</div>
-              </div>
+              <table-asset-badge
+                :image_url="'sa_images/webp/' + nft._id + '.webp'"
+                :text="nft.symbol"
+              ></table-asset-badge>
             </th>
             <td>
-              <div class="flex flex-col space-y-1">
-                <div class="col-span-2">
-                  <p class="text-s">{{ nft.name }}</p>
-                </div>
-                <div class="md:flex md:flex-row md:justify-around">
-                  <div>
-                    <p class="text-xs">{{ nft.symbol }}</p>
-                  </div>
-                  <div>
-                    <ColorBadge
-                      :type="'rarity'"
-                      :text="nft.attributes.rarity"
-                    ></ColorBadge>
-                  </div>
-                </div>
-              </div>
+              <table-asset-element
+                :name="nft.name"
+                :rarity="nft.attributes.rarity"
+                :asset_type="nft.attributes.class"
+                :asset_spec="nft.attributes.spec"
+              ></table-asset-element>
             </td>
             <td>
               <p class="text-sm">
@@ -152,6 +133,8 @@
 <script setup lang="ts">
 import { staratlasStore } from "@/stores/staratlas";
 import { ref, unref } from "vue";
+import TableAssetBadge from "@/components/table/elements/TableAssetBadge.vue";
+import TableAssetElement from "@/components/table/elements/TableAssetElement.vue";
 
 const saStore = staratlasStore();
 let ref_assetID = ref("");
@@ -170,7 +153,6 @@ import { APIData } from "@/extra/static/staratlasapi";
 import LoadingElement from "@/components/special/LoadingElement.vue";
 import TableElementMarketPrices from "@/components/table/elements/TableElementMarketPrices.vue";
 import TableElementHeaderSort from "@/components/table/elements/TableElementHeaderSort.vue";
-import ColorBadge from "@/components/special/ColorBadge.vue";
 import ModalComponent from "@/components/modals/ModalComponent.vue";
 
 export default {
@@ -186,7 +168,7 @@ export default {
     LoadingElement,
     TableElementMarketPrices,
     TableElementHeaderSort,
-    ColorBadge,
+
     ModalComponent,
   },
 };
