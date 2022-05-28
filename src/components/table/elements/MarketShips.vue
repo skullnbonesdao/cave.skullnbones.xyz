@@ -4,141 +4,148 @@
     :asset_id="ref_assetID"
     @close="ref_modalShow = false"
   ></ModalComponent>
-  <div class="overflow-x-auto">
-    <table class="table table-zebra w-full">
-      <!-- head -->
-      <thead>
-        <tr>
-          <th>
-            <TableElementHeaderSort
-              :display_text="saStore.asset_type_selected"
-              :entryToSort="'name'"
-            ></TableElementHeaderSort>
-          </th>
-          <th>
-            <TableElementHeaderSort
-              :display_text="saStore.asset_type_selected"
-              :entryToSort="'name'"
-            ></TableElementHeaderSort>
-          </th>
-          <th>
-            <TableElementHeaderSort
-              :display_text="'VWAP'"
-              :entryToSort="'vwap'"
-            ></TableElementHeaderSort>
-          </th>
-          <th>
-            <TableElementHeaderSort
-              :display_text="'ask'"
-              :entryToSort="'ask'"
-            ></TableElementHeaderSort>
-          </th>
-          <th>
-            <TableElementHeaderSort
-              :display_text="'bid'"
-              :entryToSort="'bid'"
-            ></TableElementHeaderSort>
-          </th>
-          <th>
-            <TableElementHeaderSort
-              :display_text="'ASK/VWAP'"
-              :entryToSort="'ask_usdc'"
-            ></TableElementHeaderSort>
-          </th>
-          <th>
-            <TableElementHeaderSort
-              :display_text="'BID/VWAP'"
-              :entryToSort="'bid_usdc'"
-            ></TableElementHeaderSort>
-          </th>
-          <th>APR</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Table ROW AUTO -->
+  <div :class="{ 'blur-content': ref_modalShow } + 'content'">
+    <div class="overflow-x-auto">
+      <table class="table table-zebra w-full">
+        <!-- head -->
+        <thead>
+          <tr>
+            <th>
+              <TableElementHeaderSort
+                :display_text="saStore.asset_type_selected"
+                :entryToSort="'name'"
+              ></TableElementHeaderSort>
+            </th>
+            <th>
+              <TableElementHeaderSort
+                :display_text="saStore.asset_type_selected"
+                :entryToSort="'name'"
+              ></TableElementHeaderSort>
+            </th>
+            <th>
+              <TableElementHeaderSort
+                :display_text="'VWAP'"
+                :entryToSort="'vwap'"
+              ></TableElementHeaderSort>
+            </th>
+            <th>
+              <TableElementHeaderSort
+                :display_text="'ask'"
+                :entryToSort="'ask'"
+              ></TableElementHeaderSort>
+            </th>
+            <th>
+              <TableElementHeaderSort
+                :display_text="'bid'"
+                :entryToSort="'bid'"
+              ></TableElementHeaderSort>
+            </th>
+            <th>
+              <TableElementHeaderSort
+                :display_text="'ASK/VWAP'"
+                :entryToSort="'ask_usdc'"
+              ></TableElementHeaderSort>
+            </th>
+            <th>
+              <TableElementHeaderSort
+                :display_text="'BID/VWAP'"
+                :entryToSort="'bid_usdc'"
+              ></TableElementHeaderSort>
+            </th>
+            <th>APR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table ROW AUTO -->
 
-        <tr
-          v-for="nft in saStore.assets_selected"
-          :key="nft._id"
-          :nft="nft"
-          @click="clk_tableRow(nft._id)"
-        >
-          <th>
-            <div class="avatar">
-              <div class="w-24 mask mask-hexagon">
-                <img
-                  class="rounded-md"
-                  :src="'sa_images/webp/' + nft._id + '.webp'"
-                />
-              </div>
-            </div>
-          </th>
-          <td>
-            <div class="flex flex-col space-y-1">
-              <div class="col-span-2">
-                <p class="text-s">{{ nft.name }}</p>
-              </div>
-              <div class="md:flex md:flex-row md:justify-around">
-                <div>
-                  <p class="text-xs">{{ nft.symbol }}</p>
-                </div>
-                <div>
-                  <ColorBadge
-                    :type="'rarity'"
-                    :text="nft.attributes.rarity"
-                  ></ColorBadge>
+          <tr
+            v-for="nft in saStore.assets_selected"
+            :key="nft._id"
+            :nft="nft"
+            @click="clk_tableRow(nft._id)"
+          >
+            <th>
+              <div class="static flex flex-col items-center">
+                <div class="avatar">
+                  <div class="w-12 mask mask-hexagon">
+                    <img
+                      class="rounded-md"
+                      :src="'sa_images/webp/' + nft._id + '.webp'"
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </td>
-          <td>
-            <p class="text-sm">
-              {{ parseFloat(nft.tradeSettings.vwap).toFixed(2) }} $
-            </p>
-          </td>
-          <td>
-            <div v-for="market in nft.markets" :key="market">
-              <TableElementMarketPrices
-                :side="'ask'"
-                :market="market"
-              ></TableElementMarketPrices>
-            </div>
-          </td>
-          <td>
-            <div v-for="market in nft.markets" :key="market">
-              <TableElementMarketPrices
-                :side="'bid'"
-                :market="market"
-              ></TableElementMarketPrices>
-            </div>
-          </td>
-          <td>
-            <div v-if="nft.rates">
-              {{ parseFloat(nft.rates.ask_usdc * 100).toFixed(1) }} %
-            </div>
-            <div v-else>
-              <LoadingElement></LoadingElement>
-            </div>
-          </td>
-          <td>
-            <div v-if="nft.rates">
-              {{ parseFloat(nft.rates.bid_usdc * 100).toFixed(1) }} %
-            </div>
-            <div v-else>
-              <LoadingElement></LoadingElement>
-            </div>
-          </td>
-          <td>
-            <div v-if="nft.rates">
-              {{ parseFloat(nft.rates.apr * 100).toFixed(1) }} %
-            </div>
-            <div v-else>
-              <LoadingElement></LoadingElement>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              <div class="absolute bottom-2">
+                <div class="badge">{{ nft.symbol }}</div>
+              </div>
+            </th>
+            <td>
+              <div class="flex flex-col space-y-1">
+                <div class="col-span-2">
+                  <p class="text-s">{{ nft.name }}</p>
+                </div>
+                <div class="md:flex md:flex-row md:justify-around">
+                  <div>
+                    <p class="text-xs">{{ nft.symbol }}</p>
+                  </div>
+                  <div>
+                    <ColorBadge
+                      :type="'rarity'"
+                      :text="nft.attributes.rarity"
+                    ></ColorBadge>
+                  </div>
+                </div>
+              </div>
+            </td>
+            <td>
+              <p class="text-sm">
+                {{ parseFloat(nft.tradeSettings.vwap).toFixed(2) }} $
+              </p>
+            </td>
+            <td>
+              <div v-for="market in nft.markets" :key="market">
+                <TableElementMarketPrices
+                  :side="'ask'"
+                  :market="market"
+                ></TableElementMarketPrices>
+              </div>
+            </td>
+            <td>
+              <div v-for="market in nft.markets" :key="market">
+                <TableElementMarketPrices
+                  :side="'bid'"
+                  :market="market"
+                ></TableElementMarketPrices>
+              </div>
+            </td>
+            <td>
+              <div v-if="nft.rates">
+                {{ parseFloat(nft.rates.ask_usdc * 100).toFixed(1) }} %
+              </div>
+              <div v-else>
+                <LoadingElement></LoadingElement>
+              </div>
+            </td>
+            <td>
+              <div v-if="nft.rates">
+                {{ parseFloat(nft.rates.bid_usdc * 100).toFixed(1) }} %
+              </div>
+              <div v-else>
+                <LoadingElement></LoadingElement>
+              </div>
+            </td>
+            <td>
+              <div v-if="nft.rates">
+                {{ parseFloat(nft.rates.apr * 100).toFixed(1) }} %
+              </div>
+              <div v-else>
+                <LoadingElement></LoadingElement>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -165,10 +172,9 @@ import TableElementMarketPrices from "@/components/table/elements/TableElementMa
 import TableElementHeaderSort from "@/components/table/elements/TableElementHeaderSort.vue";
 import ColorBadge from "@/components/special/ColorBadge.vue";
 import ModalComponent from "@/components/modals/ModalComponent.vue";
-import { data } from "autoprefixer";
 
 export default {
-  name: "MarketShips.vue",
+  name: "MarketShips",
   props: {
     value: {
       type: [] as APIData[],

@@ -2,8 +2,9 @@ import { defineStore } from "pinia";
 import { APIData } from "@/extra/static/staratlasapi";
 
 import { STARATLASAPIURL } from "@/extra/static/const";
-import { WS_StarAtlasMarket } from "@/extra/WS_StarAtlasMarket";
 import { calculateRates } from "@/extra/calculator";
+
+import { WS_StarAtlasMarket } from "@/extra/WS_StarAtlasMarket";
 
 export const staratlasStore = defineStore({
   id: "staratlas_store",

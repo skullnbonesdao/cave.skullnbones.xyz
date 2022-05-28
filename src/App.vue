@@ -1,5 +1,4 @@
 <template>
-  <modal></modal>
   <NavigationBar></NavigationBar>
   <router-view />
   <FooterComponent></FooterComponent>
