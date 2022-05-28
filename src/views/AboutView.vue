@@ -11,7 +11,7 @@
       <div class="text-center text-xl pb-5">
         This SA-ToolBox is brought to you by the member of SkullnBonesDAO
       </div>
-      <div class="artboard text-center bg-gray-700 rounded-md p-6 space-y-2">
+      <div class="artboard text-center rounded-md p-6 space-y-2">
         <h1 class="text-2xl">Disclaimer</h1>
         <p>Last updated: May 28, 2022</p>
         <h1 class="text-2xl">Interpretation and Definitions</h1>
