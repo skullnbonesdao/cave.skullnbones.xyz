@@ -32,21 +32,48 @@
             class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <router-link class="router-link" to="/">Home</router-link>
+              <router-link class="router-link" to="/">
+                <div class="flex flex-row space-x-1">
+                  <HomeIcon class="h-5 w-5 text-blue-500"></HomeIcon>
+                  <div>Home</div>
+                </div>
+              </router-link>
             </li>
             <li>
-              <router-link class="router-link" to="/market">Market</router-link>
+              <router-link class="router-link" to="/market">
+                <div class="flex flex-row space-x-1">
+                  <ShoppingBagIcon
+                    class="h-5 w-5 text-blue-500"
+                  ></ShoppingBagIcon>
+                  <div>Market</div>
+                </div>
+              </router-link>
             </li>
             <li>
-              <router-link class="router-link" to="/shipsstacked"
-                >Score
+              <router-link class="router-link" to="/shipsstacked">
+                <div class="flex flex-row space-x-1">
+                  <ColorSwatchIcon
+                    class="h-5 w-5 text-blue-500"
+                  ></ColorSwatchIcon>
+                  <div>Score</div>
+                </div>
+              </router-link>
+            </li>
+            <li>
+              <router-link class="router-link" to="/about">
+                <div class="flex flex-row space-x-1">
+                  <InformationCircleIcon
+                    class="h-5 w-5 text-blue-500"
+                  ></InformationCircleIcon>
+                  <div>About</div>
+                </div>
               </router-link>
             </li>
           </ul>
         </div>
         <a class="btn btn-ghost normal-case text-xl"
-          ><img src="snblogo.svg" alt="logo" width="50px" />S&B</a
-        >
+          ><img src="@/assets/snb_logo.svg" alt="logo" class="h-6 pr-2" />S&B
+        </a>
       </div>
       <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0 space-x-2">
@@ -55,7 +82,11 @@
               class="router-link"
               v-bind:class="$route.name === 'home' ? ' active' : ''"
               to="/"
-              >Home
+            >
+              <div class="flex flex-col-reverse items-center">
+                <div>Home</div>
+                <HomeIcon class="h-5 w-5 text-blue-500"></HomeIcon>
+              </div>
             </router-link>
           </li>
           <li>
@@ -63,7 +94,13 @@
               class="router-link"
               v-bind:class="$route.name === 'market' ? ' active' : ''"
               to="/market"
-              >Market
+            >
+              <div class="flex flex-col-reverse items-center">
+                <div>Store</div>
+                <ShoppingBagIcon
+                  class="h-5 w-5 text-blue-500"
+                ></ShoppingBagIcon>
+              </div>
             </router-link>
           </li>
           <li>
@@ -71,7 +108,13 @@
               class="router-link"
               v-bind:class="$route.name === 'score' ? ' active' : ''"
               to="/shipsstacked"
-              >Score
+            >
+              <div class="flex flex-col-reverse items-center">
+                <div>SCORE</div>
+                <ColorSwatchIcon
+                  class="h-5 w-5 text-blue-500"
+                ></ColorSwatchIcon>
+              </div>
             </router-link>
           </li>
           <li>
@@ -79,7 +122,13 @@
               class="router-link"
               v-bind:class="$route.name === 'about' ? ' active' : ''"
               to="/about"
-              >About
+            >
+              <div class="flex flex-col-reverse items-center">
+                <div>About</div>
+                <InformationCircleIcon
+                  class="h-5 w-5 text-blue-500"
+                ></InformationCircleIcon>
+              </div>
             </router-link>
           </li>
         </ul>
@@ -91,13 +140,29 @@
     </div>
   </nav>
 </template>
+
 <script lang="ts">
 import SwitchViewMode from "@/components/buttons/SwitchViewMode.vue";
 
+import { HomeIcon } from "@heroicons/vue/outline";
+import { ShoppingBagIcon } from "@heroicons/vue/outline";
+import { InformationCircleIcon, ColorSwatchIcon } from "@heroicons/vue/outline";
+
 export default {
   name: "NavigationBar",
-  components: { SwitchViewMode },
+  el: "#app",
+  components: {
+    SwitchViewMode,
+    ShoppingBagIcon,
+    HomeIcon,
+    InformationCircleIcon,
+    ColorSwatchIcon,
+  },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+[data-theme="dark"] img {
+  filter: invert(1);
+}
+</style>

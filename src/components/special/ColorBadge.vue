@@ -2,10 +2,10 @@
   <div>
     <div v-if="type === 'rarity'">
       <span
-        class="badge text-xs border-transparent"
+        class="badge text-xs border-transparent lowercase"
         v-bind:class="
           ' ' +
-          (text === 'common' ? 'bg-gray' : '') +
+          (text === 'common' ? 'bg-gray-500' : '') +
           (text === 'uncommon' ? 'bg-green-700' : '') +
           (text === 'rare' ? 'bg-blue-700' : '') +
           (text === 'epic' ? 'bg-purple-700' : '') +
@@ -16,7 +16,7 @@
       >
     </div>
     <div v-else>
-      <span class="badge text-xs border-transparent">{{ text }}</span>
+      <span class="badge text-xs border-transparent lowercase">{{ text }}</span>
     </div>
   </div>
 </template>

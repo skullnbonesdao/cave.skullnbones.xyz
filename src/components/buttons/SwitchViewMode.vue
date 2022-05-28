@@ -10,7 +10,6 @@
           id="flexSwitchCheckDefault"
           data-toggle-theme="dark,light"
           data-act-class="ACTIVECLASS"
-          @click="switch_view_mode"
         />
       </div>
     </div>
@@ -20,20 +19,5 @@
 <script>
 export default {
   name: "SwitchViewMode",
-  methods: {
-    switch_view_mode() {
-      console.log("Toggle Mode");
-      this.darkMode = !this.darkMode;
-      if (this.darkMode) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-      console.log(document);
-    },
-  },
-  mounted() {
-    document.documentElement.classList.add("dark");
-  },
 };
 </script>

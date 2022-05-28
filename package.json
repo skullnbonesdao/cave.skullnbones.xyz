@@ -9,6 +9,7 @@
     "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
+    "@heroicons/vue": "^1.0.6",
     "async-sema": "^3.1.1",
     "core-js": "^3.8.3",
     "daisyui": "^2.15.1",
