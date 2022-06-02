@@ -80,9 +80,7 @@
               ></table-asset-element>
             </td>
             <td>
-              <p class="text-sm">
-                {{ parseFloat(nft.tradeSettings.vwap).toFixed(2) }} $
-              </p>
+              <p class="text-sm">{{ nft.tradeSettings.vwap.toFixed(2) }} $</p>
             </td>
             <td>
               <div v-for="market in nft.markets" :key="market">
@@ -111,7 +109,7 @@
                     : 'color: gold'
                 "
               >
-                {{ parseFloat(nft.rates.ask_usdc * 100).toFixed(1) }} %
+                {{ (nft.rates.ask_usdc * 100).toFixed(1) }} %
               </div>
               <div v-else>
                 <LoadingElement></LoadingElement>
@@ -128,7 +126,7 @@
                     : 'color: gold'
                 "
               >
-                {{ parseFloat(nft.rates.bid_usdc * 100).toFixed(1) }} %
+                {{ (nft.rates.bid_usdc * 100).toFixed(1) }} %
               </div>
               <div v-else>
                 <LoadingElement></LoadingElement>
@@ -136,7 +134,7 @@
             </td>
             <td>
               <div v-if="nft.rates">
-                {{ parseFloat(nft.rates.apr * 100).toFixed(1) }} %
+                {{ (nft.rates.apr * 100).toFixed(1) }} %
               </div>
               <div v-else>
                 <LoadingElement></LoadingElement>

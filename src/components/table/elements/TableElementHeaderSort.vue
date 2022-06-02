@@ -3,6 +3,7 @@
     <div class="pt-1">{{ display_text }}</div>
     <div class="space-y-0.5">
       <svg
+        class="invertable"
         version="1.1"
         id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -23,6 +24,7 @@
         />
       </svg>
       <svg
+        class="invertable"
         version="1.1"
         id="Layer_1"
         xmlns="http://www.w3.org/2000/svg"
@@ -71,4 +73,8 @@ export default defineComponent({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+[data-theme="dark"] .invertable {
+  filter: invert(1);
+}
+</style>
