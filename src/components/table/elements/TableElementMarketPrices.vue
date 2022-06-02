@@ -8,7 +8,7 @@
         <div>{{ market.dex.bestAsk[0] }}</div>
         <div>
           <img
-            class="mt-1"
+            class="invertible mt-1"
             width="15"
             height="15"
             v-bind:src="
@@ -23,7 +23,7 @@
         <div>no-market</div>
         <div>
           <img
-            class="mt-1"
+            class="invertible mt-1"
             width="15"
             height="15"
             v-bind:src="
@@ -47,7 +47,7 @@
       <div>{{ market.dex.bestBid[0] }}</div>
       <div>
         <img
-          class="mt-1"
+          class="invertible mt-1"
           width="15"
           height="15"
           v-bind:src="
@@ -76,4 +76,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+[data-theme="dark"] .invertible {
+  filter: invert(1);
+}
+</style>

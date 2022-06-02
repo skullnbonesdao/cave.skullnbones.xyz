@@ -2,7 +2,7 @@
   <div>
     <div v-if="type === 'rarity'">
       <span
-        class="badge text-xs border-transparent lowercase"
+        class="badge text-xs border-transparent lowercase text-slate-200"
         v-bind:class="
           ' ' +
           (text === 'common' ? 'bg-gray-500' : '') +

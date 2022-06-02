@@ -72,7 +72,11 @@
           </ul>
         </div>
         <a class="btn btn-ghost normal-case text-xl"
-          ><img src="@/assets/snb_logo.svg" alt="logo" class="h-6 pr-2" />S&B
+          ><img
+            src="@/assets/snb_logo.svg"
+            alt="logo"
+            class="invertible h-6 pr-2"
+          />S&B
         </a>
       </div>
       <div class="navbar-center hidden lg:flex">
@@ -162,7 +166,7 @@ export default {
 </script>
 
 <style scoped>
-[data-theme="dark"] img {
+[data-theme="dark"] .invertible {
   filter: invert(1);
 }
 </style>
