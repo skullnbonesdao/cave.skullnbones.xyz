@@ -23,6 +23,24 @@ export function calculateRates(
       (dex_data?.bestAsk != undefined ? dex_data.bestAsk[0] : 0) / vwap;
     rates.bid_usdc =
       (dex_data?.bestBid != undefined ? dex_data.bestBid[0] : 0) / vwap;
+
+    //USDC - ask
+    if (rates.ask_usdc !== 0) {
+      if (rates.ask_usdc > 1.0) {
+        rates.ask_usdc = rates.ask_usdc - 1;
+      } else {
+        rates.ask_usdc = -(1 - rates.ask_usdc);
+      }
+    }
+    //USDC - bid
+
+    if (rates.ask_usdc !== 0) {
+      if (rates.bid_usdc > 1.0) {
+        rates.bid_usdc = rates.bid_usdc - 1;
+      } else {
+        rates.bid_usdc = -(1 - rates.bid_usdc);
+      }
+    }
     return rates;
   }
   return undefined;

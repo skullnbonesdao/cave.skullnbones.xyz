@@ -100,7 +100,16 @@
               </div>
             </td>
             <td>
-              <div v-if="nft.rates">
+              <div
+                v-if="nft.rates"
+                :style="
+                  nft.rates.ask_usdc < 0
+                    ? 'color: red'
+                    : nft.rates.ask_usdc > 0
+                    ? 'color: green'
+                    : 'color: gold'
+                "
+              >
                 {{ parseFloat(nft.rates.ask_usdc * 100).toFixed(1) }} %
               </div>
               <div v-else>
@@ -108,7 +117,16 @@
               </div>
             </td>
             <td>
-              <div v-if="nft.rates">
+              <div
+                v-if="nft.rates"
+                :style="
+                  nft.rates.bid_usdc < 0
+                    ? 'color: red'
+                    : nft.rates.bid_usdc > 0
+                    ? 'color: green'
+                    : 'color: gold'
+                "
+              >
                 {{ parseFloat(nft.rates.bid_usdc * 100).toFixed(1) }} %
               </div>
               <div v-else>
