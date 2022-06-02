@@ -3,9 +3,13 @@
     <div class="grow">
       <p>{{ name }}</p>
       <div class="flex space-x-2">
-        <color-badge :type="'rarity'" :text="rarity"></color-badge>
-        <color-badge :text="asset_type"></color-badge>
-        <color-badge :text="asset_spec"></color-badge>
+        <color-badge
+          v-if="rarity"
+          :type="'rarity'"
+          :text="rarity"
+        ></color-badge>
+        <color-badge v-if="asset_type" :text="asset_type"></color-badge>
+        <color-badge v-if="asset_spec" :text="asset_spec"></color-badge>
       </div>
     </div>
   </div>

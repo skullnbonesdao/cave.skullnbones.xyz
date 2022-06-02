@@ -59,6 +59,7 @@
           <!-- Table ROW AUTO -->
 
           <tr
+            class="hover"
             v-for="nft in saStore.assets_selected"
             :key="nft._id"
             :nft="nft"

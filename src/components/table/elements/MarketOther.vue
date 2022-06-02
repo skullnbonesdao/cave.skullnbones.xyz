@@ -21,26 +21,25 @@
       </thead>
       <tbody>
         <!-- Table ROW AUTO -->
-        <tr v-for="nft in saStore.assets_selected" :key="nft._id" :nft="nft">
+        <tr
+          class="hover"
+          v-for="nft in saStore.assets_selected"
+          :key="nft._id"
+          :nft="nft"
+        >
           <th>
-            <div class="flex flex-col space-x-2">
-              <div class="w-20">
-                <img
-                  class="rounded-md"
-                  :src="'sa_images/webp/' + nft._id + '.webp'"
-                />
-              </div>
-              <div class="flex flex-col text-left">
-                <p class="text-base">{{ nft.name }}</p>
-                <ColorBadge
-                  :type="'rarity'"
-                  :text="nft.attributes.rarity"
-                ></ColorBadge>
-              </div>
-            </div>
+            <table-asset-badge
+              :image_url="'sa_images/webp/' + nft._id + '.webp'"
+              :text="nft.symbol"
+            ></table-asset-badge>
           </th>
           <td>
-            <p>{{ nft.attributes.class }}</p>
+            <table-asset-element
+              :name="nft.name"
+              :rarity="nft.attributes.rarity"
+              :asset_type="nft.attributes.class"
+              :asset_spec="nft.attributes.spec"
+            ></table-asset-element>
           </td>
           <td>
             <div v-for="market in nft.markets" :key="market">
@@ -65,6 +64,9 @@
 </template>
 
 <script setup lang="ts">
+import TableAssetBadge from "@/components/table/elements/TableAssetBadge.vue";
+import TableAssetElement from "@/components/table/elements/TableAssetElement.vue";
+
 import { staratlasStore } from "@/stores/staratlas";
 
 const saStore = staratlasStore();
@@ -86,7 +88,6 @@ export default {
   },
   components: {
     TableElementMarketPrices,
-    ColorBadge,
   },
 };
 </script>
