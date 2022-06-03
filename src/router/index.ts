@@ -2,6 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ShipsStacked from "../views/ShipsStacked.vue";
 import MarketView from "../views/MarketView.vue";
+import NFTBurnerView from "../views/NFTBurnerView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -18,6 +19,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/market",
     name: "market",
     component: MarketView,
+  },
+  {
+    path: "/burner",
+    name: "burner",
+    component: NFTBurnerView,
   },
   {
     path: "/about",

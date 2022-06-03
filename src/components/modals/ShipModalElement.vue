@@ -9,21 +9,32 @@
       <h2 class="text-xl text-right">
         {{ saStore.assets.find((asset) => asset._id === asset_id).name }}
       </h2>
-      <div class="flex flex-col text-right text-sm uppercase">
+      <div class="flex flex-col text-right text-sm">
         <p>
-          {{ saStore.assets.find((asset) => asset._id === asset_id).symbol }}
+          <color-badge
+            :text="
+              saStore.assets.find((asset) => asset._id === asset_id).symbol
+            "
+            :forceUppercase="true"
+          ></color-badge>
         </p>
         <p>
-          {{
-            saStore.assets.find((asset) => asset._id === asset_id).attributes
-              .class
-          }}
+          <color-badge
+            :text="
+              saStore.assets.find((asset) => asset._id === asset_id).attributes
+                .class
+            "
+            :forceUppercase="true"
+          ></color-badge>
         </p>
         <p>
-          {{
-            saStore.assets.find((asset) => asset._id === asset_id).attributes
-              .spec
-          }}
+          <color-badge
+            :text="
+              saStore.assets.find((asset) => asset._id === asset_id).attributes
+                .spec
+            "
+            :forceUppercase="true"
+          ></color-badge>
         </p>
       </div>
     </div>
@@ -113,6 +124,7 @@
 <script setup>
 import { staratlasStore } from "@/stores/staratlas";
 import { defineEmits, defineProps, onMounted, ref, unref } from "vue";
+import ColorBadge from "@/components/special/ColorBadge";
 
 import { WS_StarAtlasMarket } from "@/extra/WS_StarAtlasMarket";
 

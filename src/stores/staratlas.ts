@@ -74,7 +74,7 @@ export const staratlasStore = defineStore({
             const bp = b.markets[market_index]?.dex?.bestAsk
               ? b.markets[market_index].dex?.bestAsk[0]
               : 0 || 0;
-            return (ap || 0) - (bp || 0);
+            return (ap || 0) - (bp || 1);
           });
           break;
         case "bid":

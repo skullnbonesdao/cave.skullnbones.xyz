@@ -124,6 +124,20 @@
           <li>
             <router-link
               class="router-link"
+              v-bind:class="$route.name === 'burner' ? ' active' : ''"
+              to="/burner"
+            >
+              <div class="flex flex-col-reverse items-center">
+                <div>BURNER</div>
+                <InformationCircleIcon
+                  class="h-5 w-5 text-blue-500"
+                ></InformationCircleIcon>
+              </div>
+            </router-link>
+          </li>
+          <li>
+            <router-link
+              class="router-link"
               v-bind:class="$route.name === 'about' ? ' active' : ''"
               to="/about"
             >

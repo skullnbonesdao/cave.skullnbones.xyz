@@ -15,6 +15,9 @@
         >{{ text }}</span
       >
     </div>
+    <div v-else-if="forceUppercase">
+      <span class="badge text-xs border-transparent uppercase">{{ text }}</span>
+    </div>
     <div v-else>
       <span class="badge text-xs border-transparent lowercase">{{ text }}</span>
     </div>
@@ -24,7 +27,7 @@
 <script>
 export default {
   name: "ColorBadge",
-  props: ["type", "text"],
+  props: ["type", "text", "forceUppercase"],
 };
 </script>
 
