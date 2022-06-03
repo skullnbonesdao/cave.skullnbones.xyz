@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-const image_src = "pirate-ship-large.jpeg";
+const image_src = "pirate-ship-large.jpg";
 </script>
 
 <script lang="ts">

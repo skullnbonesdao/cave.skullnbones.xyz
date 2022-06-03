@@ -151,9 +151,9 @@
           </li>
         </ul>
       </div>
-      <div class="navbar-end">
+      <div class="navbar-end space-x-2">
         <SwitchViewMode></SwitchViewMode>
-        <a class="btn">Get started</a>
+        <wallet-multi-button dark></wallet-multi-button>
       </div>
     </div>
   </nav>
@@ -161,7 +161,7 @@
 
 <script lang="ts">
 import SwitchViewMode from "@/components/buttons/SwitchViewMode.vue";
-
+import { WalletMultiButton } from "solana-wallets-vue";
 import { HomeIcon } from "@heroicons/vue/outline";
 import { ShoppingBagIcon } from "@heroicons/vue/outline";
 import { InformationCircleIcon, ColorSwatchIcon } from "@heroicons/vue/outline";
@@ -170,6 +170,7 @@ export default {
   name: "NavigationBar",
   el: "#app",
   components: {
+    WalletMultiButton,
     SwitchViewMode,
     ShoppingBagIcon,
     HomeIcon,
