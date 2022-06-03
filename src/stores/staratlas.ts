@@ -68,10 +68,10 @@ export const staratlasStore = defineStore({
         case "ask":
           console.log("ASK");
           this.assets_selected.sort(function (a, b) {
-            const ap = a.markets[market_index].dex?.bestAsk
+            const ap = a.markets[market_index]?.dex?.bestAsk
               ? a.markets[market_index].dex?.bestAsk[0]
               : 0 || 0;
-            const bp = b.markets[market_index].dex?.bestAsk
+            const bp = b.markets[market_index]?.dex?.bestAsk
               ? b.markets[market_index].dex?.bestAsk[0]
               : 0 || 0;
             return (ap || 0) - (bp || 0);
@@ -80,10 +80,10 @@ export const staratlasStore = defineStore({
         case "bid":
           console.log("BID");
           this.assets_selected.sort(function (a, b) {
-            const ap = a.markets[market_index].dex?.bestBid
+            const ap = a.markets[market_index]?.dex?.bestBid
               ? a.markets[market_index].dex?.bestBid[0]
               : 0 || 0;
-            const bp = b.markets[market_index].dex?.bestBid
+            const bp = b.markets[market_index]?.dex?.bestBid
               ? b.markets[market_index].dex?.bestBid[0]
               : 0 || 0;
             return (ap || 0) - (bp || 0);

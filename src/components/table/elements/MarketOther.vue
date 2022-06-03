@@ -4,18 +4,24 @@
       <!-- head -->
       <thead>
         <tr>
-          <th>{{ saStore.asset_type_selected }}</th>
-          <th>Class</th>
+          <th></th>
           <th>
-            <div class="flex flex-row space-x-2">
-              <p>Ask</p>
-              <img src="tokens/ICON_ATLAS.webp" width="20" />
-            </div>
+            <TableElementHeaderSort
+              :display_text="saStore.asset_type_selected"
+              :entryToSort="'name'"
+            ></TableElementHeaderSort>
           </th>
           <th>
-            <div class="flex flex-row space-x-2">
-              <p>Bid</p>
-            </div>
+            <TableElementHeaderSort
+              :display_text="'ask'"
+              :entryToSort="'ask'"
+            ></TableElementHeaderSort>
+          </th>
+          <th>
+            <TableElementHeaderSort
+              :display_text="'bid'"
+              :entryToSort="'bid'"
+            ></TableElementHeaderSort>
           </th>
         </tr>
       </thead>
@@ -66,6 +72,7 @@
 <script setup lang="ts">
 import TableAssetBadge from "@/components/table/elements/TableAssetBadge.vue";
 import TableAssetElement from "@/components/table/elements/TableAssetElement.vue";
+import TableElementHeaderSort from "@/components/table/elements/TableElementHeaderSort.vue";
 
 import { staratlasStore } from "@/stores/staratlas";
 

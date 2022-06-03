@@ -10,15 +10,10 @@
         <!-- head -->
         <thead>
           <tr>
+            <th></th>
             <th>
               <TableElementHeaderSort
-                :display_text="saStore.asset_type_selected"
-                :entryToSort="'name'"
-              ></TableElementHeaderSort>
-            </th>
-            <th>
-              <TableElementHeaderSort
-                :display_text="saStore.asset_type_selected"
+                :display_text="'Name'"
                 :entryToSort="'name'"
               ></TableElementHeaderSort>
             </th>
@@ -152,6 +147,7 @@ import { staratlasStore } from "@/stores/staratlas";
 import { ref, unref } from "vue";
 import TableAssetBadge from "@/components/table/elements/TableAssetBadge.vue";
 import TableAssetElement from "@/components/table/elements/TableAssetElement.vue";
+import TableElementHeaderSort from "@/components/table/elements/TableElementHeaderSort.vue";
 
 const saStore = staratlasStore();
 let ref_assetID = ref("");
@@ -169,7 +165,6 @@ function clk_tableRow(event: string) {
 import { APIData } from "@/extra/static/staratlasapi";
 import LoadingElement from "@/components/special/LoadingElement.vue";
 import TableElementMarketPrices from "@/components/table/elements/TableElementMarketPrices.vue";
-import TableElementHeaderSort from "@/components/table/elements/TableElementHeaderSort.vue";
 import ModalComponent from "@/components/modals/ModalComponent.vue";
 
 export default {
@@ -184,7 +179,6 @@ export default {
   components: {
     LoadingElement,
     TableElementMarketPrices,
-    TableElementHeaderSort,
 
     ModalComponent,
   },
