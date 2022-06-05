@@ -4,7 +4,7 @@
     :message_text="nftburnerstore.message || ''"
     @close="ref_modalShow = false"
   ></MessageModal>
-  <FireElement style="opacity: 0.2"></FireElement>
+  <FireElement style="opacity: 0.1"></FireElement>
   <div class="">
     <div class="flex flex-col w-full mt-3">
       <div
@@ -20,7 +20,7 @@
       <content class="bg-base-300 mx-12 pt-5 rounded-box">
         <div class="flex flex-col text-center">
           <p class="text-xl text-red-500">
-            This 'NFT-Burner' will destroy your NFT it will not be recoverable!
+            The Plank will <b>destroy</b> your NFT it will not be recoverable!
           </p>
           <p>
             Do use this with caution we advise you to use a separate wallet
