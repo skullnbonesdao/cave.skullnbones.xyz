@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card bg-base-100 shadow-2xl hover:bg-black">
+    <div class="card bg-base-100 shadow-2xl hover:bg-opacity-5">
       <figure class="pt-4">
         <img
           :src="img_url"

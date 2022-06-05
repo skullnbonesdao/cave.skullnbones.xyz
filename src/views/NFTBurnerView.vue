@@ -17,30 +17,32 @@
         </div>
       </div>
       <div class="divider"></div>
-      <div class="flex flex-col text-center">
-        <h1 class="text-xl">
-          This 'NFT-Burner' will destroy your NFT it will not be recoverable!
-        </h1>
-        <h1>
-          Do this with caution we advise you to use a separate wallet beside
-          your main-wallet.
-        </h1>
-        <h1>Your NFT-SOL-Rent will be recovered!</h1>
-      </div>
-      <div class="flex justify-center p-9">
-        <div
-          class="grid sm:grid-cols-2 md:grid-cols-3 lg:md:grid-cols-4 grid-flow-row gap-4"
-        >
-          <nftburnercard
-            v-for="nft in nftburnerstore.nftArray"
-            :key="nft"
-            :name="nft.data.name ? nft.data.name : 'no-name'"
-            :mint="nft.mint"
-            :img_url="nft.data.img_url"
-          >
-          </nftburnercard>
+      <content class="bg-base-300 mx-12 pt-5 rounded-box">
+        <div class="flex flex-col text-center">
+          <p class="text-xl text-red-500">
+            This 'NFT-Burner' will destroy your NFT it will not be recoverable!
+          </p>
+          <p>
+            Do use this with caution we advise you to use a separate wallet
+            beside your main-wallet.
+          </p>
+          <p>Your NFT-SOL-Rent will be recovered!</p>
         </div>
-      </div>
+        <div class="flex justify-center p-9">
+          <div
+            class="grid sm:grid-cols-2 md:grid-cols-3 lg:md:grid-cols-4 grid-flow-row gap-4"
+          >
+            <nftburnercard
+              v-for="nft in nftburnerstore.nftArray"
+              :key="nft"
+              :name="nft.data.name ? nft.data.name : 'no-name'"
+              :mint="nft.mint"
+              :img_url="nft.data.img_url"
+            >
+            </nftburnercard>
+          </div>
+        </div>
+      </content>
     </div>
   </div>
 </template>
