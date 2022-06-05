@@ -7,7 +7,7 @@
 }
 
 .swv-button {
-    @apply rounded-full w-full;
+    @apply rounded-full w-fit text-xs;
 }
 
 .swv-button-trigger {
