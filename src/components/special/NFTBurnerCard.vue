@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card bg-base-100 shadow-2xl hover:bg-opacity-5">
+    <div class="card bg-base-100 shadow-2xl hover:bg-opacity-50">
       <figure class="pt-4">
         <img
           :src="img_url"
@@ -10,10 +10,13 @@
       </figure>
       <div class="p-2">
         <h2 class="text-xl">{{ name }}</h2>
+        <a :href="'https://solscan.io/token/' + mint" class="link-info">
+          solscan.io</a
+        >
         <p class="text-2xs">{{ mint }}</p>
         <div class="flex py-2 justify-end">
           <button
-            class="btn btn-warning hover:bg-opacity-70"
+            class="btn btn-warning hover:bg-opacity-50"
             @click="nftburnerstore.burnToken(mint)"
           >
             Burn 🔥

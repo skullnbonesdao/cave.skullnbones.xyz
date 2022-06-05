@@ -35,7 +35,7 @@
             <nftburnercard
               v-for="nft in nftburnerstore.nftArray"
               :key="nft"
-              :name="nft.data.name ? nft.data.name : 'no-name'"
+              :name="nft.data.name ? nft.data.name : 'unknown'"
               :mint="nft.mint"
               :img_url="nft.data.img_url"
             >
@@ -62,14 +62,19 @@ const nftburnerstore = nftBurnerStore();
 console.log(nftburnerstore.nftArray);
 const { publicKey } = useWallet();
 
+onMounted(async function () {
+  if (publicKey.value) {
+    await nftburnerstore.fetchNFTs(publicKey.value.toString());
+  }
+  await nftburnerstore.fetchData();
+});
+
 watch(
   () => publicKey.value,
   async function () {
     if (publicKey.value) {
       await nftburnerstore.fetchNFTs(publicKey.value.toString());
     }
-    console.log(nftburnerstore.nftArray);
-
     await nftburnerstore.fetchData();
   }
 );
