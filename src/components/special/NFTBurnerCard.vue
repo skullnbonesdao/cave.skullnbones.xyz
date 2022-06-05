@@ -10,7 +10,12 @@
       </figure>
       <div class="p-2">
         <h2 class="text-xl">{{ name }}</h2>
-        <a :href="'https://solscan.io/token/' + mint" class="link-info">
+        <a
+          :href="'https://solscan.io/token/' + mint"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="link-info"
+        >
           solscan.io</a
         >
         <p class="text-2xs">{{ mint }}</p>
