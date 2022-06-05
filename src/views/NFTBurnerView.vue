@@ -28,6 +28,13 @@
           </p>
           <p>Your NFT-SOL-Rent will be recovered!</p>
         </div>
+        <div
+          v-if="!publicKey"
+          class="flex flex-col items-center pt-10 space-y-2"
+        >
+          <p class="text-xl">You are not connected!</p>
+          <wallet-multi-button dark></wallet-multi-button>
+        </div>
         <div class="flex justify-center p-9">
           <div
             class="grid sm:grid-cols-2 md:grid-cols-3 lg:md:grid-cols-4 grid-flow-row gap-4"
@@ -51,6 +58,7 @@
 import nftburnercard from "@/components/special/NFTBurnerCard.vue";
 import { nftBurnerStore } from "@/stores/NFTBurnerStore";
 import { useWallet } from "solana-wallets-vue";
+import { WalletMultiButton } from "solana-wallets-vue";
 import { defineComponent, onMounted, ref, watch } from "vue";
 import MessageModal from "@/components/modals/MessageModal.vue";
 
