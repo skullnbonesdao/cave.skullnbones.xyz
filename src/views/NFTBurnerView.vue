@@ -4,16 +4,16 @@
     :message_text="nftburnerstore.message || ''"
     @close="ref_modalShow = false"
   ></MessageModal>
-
+  <FireElement style="opacity: 0.2"></FireElement>
   <div class="">
     <div class="flex flex-col w-full mt-3">
       <div
-        class="justify-center mx-12 h-20 card bg-base-300 rounded-box place-items-center"
+        class="justify-center mx-12 p-3 card bg-base-300 rounded-box place-items-center"
       >
-        <p class="text-4xl">NFT Burner</p>
+        <p class="text-4xl">The Plank</p>
 
         <div class="alert-warning shadow-lg text-center rounded-md px-2">
-          <h3>You are about to burn your NFTs</h3>
+          <p>🔥 You are about to burn your NFTs 🔥</p>
         </div>
       </div>
       <div class="divider"></div>
@@ -61,6 +61,7 @@ import { useWallet } from "solana-wallets-vue";
 import { WalletMultiButton } from "solana-wallets-vue";
 import { defineComponent, onMounted, ref, watch } from "vue";
 import MessageModal from "@/components/modals/MessageModal.vue";
+import FireElement from "@/components/elements/FireElement.vue";
 
 defineComponent({ nftburnercard, MessageModal });
 
