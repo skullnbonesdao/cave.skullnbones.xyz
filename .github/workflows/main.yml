@@ -12,4 +12,4 @@ jobs:
           username: 'skullnbonesdao'
           reponame: 'cave.skullnbones.xyz'
           token: ${{ secrets.GITHUB_TOKEN }}
-      - run: cp index.html 404.html
+      - run: cp release/index.html 404.html
