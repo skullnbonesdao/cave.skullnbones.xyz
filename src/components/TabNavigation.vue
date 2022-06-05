@@ -4,7 +4,7 @@
       v-for="element in saStore.asset_types"
       :key="element"
       v-bind:class="
-        'tab tab-lifted uppercase ' +
+        'tab tab-lifted uppercase text-md ' +
         (saStore.asset_type_selected === element ? 'tab-active' : '')
       "
       @click="clk_selectRowElement(element)"

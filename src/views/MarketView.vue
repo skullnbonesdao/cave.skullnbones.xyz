@@ -6,7 +6,9 @@
       <p class="text-4xl">Market</p>
     </div>
     <div class="divider"></div>
-    <MarketTable></MarketTable>
+    <MarketTable
+      class="justify-center mx-5 bg-base-300 rounded-box place-items-center"
+    ></MarketTable>
   </div>
 </template>
 

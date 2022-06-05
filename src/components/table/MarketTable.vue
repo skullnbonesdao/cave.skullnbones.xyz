@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-3 rounded-md shadow-xl ring-1">
+  <div class="">
     <TabNavigation></TabNavigation>
     <div v-if="saStore.asset_type_selected == 'ship'">
       <MarketShips></MarketShips>

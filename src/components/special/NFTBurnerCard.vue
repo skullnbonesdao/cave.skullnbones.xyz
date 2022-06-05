@@ -13,7 +13,7 @@
         <p class="text-2xs">{{ mint }}</p>
         <div class="flex py-2 justify-end">
           <button
-            class="btn btn-warning"
+            class="btn btn-warning hover:bg-opacity-70"
             @click="nftburnerstore.burnToken(mint)"
           >
             Burn 🔥
