@@ -19,7 +19,7 @@
           solscan.io</a
         >
         <p class="text-2xs">{{ mint }}</p>
-        <div class="flex py-2 justify-end">
+        <div class="flex py-2 pr-2 justify-end">
           <button
             class="btn btn-warning hover:bg-opacity-50"
             @click="nftburnerstore.burnToken(mint)"
