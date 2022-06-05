@@ -12,3 +12,8 @@ jobs:
           username: 'skullnbonesdao'
           reponame: 'cave.skullnbones.xyz'
           token: ${{ secrets.GITHUB_TOKEN }}
+      - id: copy-file
+        uses: canastro/copy-file-action@master
+        with:
+          source: "index.html"
+          target: "404.html"

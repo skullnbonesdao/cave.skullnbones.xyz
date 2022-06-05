@@ -60,6 +60,14 @@
               </router-link>
             </li>
             <li>
+              <router-link class="router-link" to="/burner">
+                <div class="flex flex-row space-x-1">
+                  <FireIcon class="h-5 w-5 text-blue-500"></FireIcon>
+                  <div>Burner</div>
+                </div>
+              </router-link>
+            </li>
+            <li>
               <router-link class="router-link" to="/about">
                 <div class="flex flex-row space-x-1">
                   <InformationCircleIcon
@@ -129,9 +137,7 @@
             >
               <div class="flex flex-col-reverse items-center">
                 <div>BURNER</div>
-                <InformationCircleIcon
-                  class="h-5 w-5 text-blue-500"
-                ></InformationCircleIcon>
+                <FireIcon class="h-5 w-5 text-blue-500"></FireIcon>
               </div>
             </router-link>
           </li>
@@ -163,8 +169,12 @@
 import SwitchViewMode from "@/components/buttons/SwitchViewMode.vue";
 import { WalletMultiButton } from "solana-wallets-vue";
 import { HomeIcon } from "@heroicons/vue/outline";
-import { ShoppingBagIcon } from "@heroicons/vue/outline";
-import { InformationCircleIcon, ColorSwatchIcon } from "@heroicons/vue/outline";
+import {
+  InformationCircleIcon,
+  ColorSwatchIcon,
+  ShoppingBagIcon,
+  FireIcon,
+} from "@heroicons/vue/outline";
 
 export default {
   name: "NavigationBar",
@@ -176,6 +186,7 @@ export default {
     HomeIcon,
     InformationCircleIcon,
     ColorSwatchIcon,
+    FireIcon,
   },
 };
 </script>
