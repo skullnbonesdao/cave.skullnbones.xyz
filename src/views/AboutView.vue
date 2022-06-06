@@ -11,7 +11,7 @@
     >
       <div class="flex flex-col mx-6">
         <div class="text-center text-xl pb-5">
-          This SA-ToolBox is brought to you by the member of SkullnBonesDAO
+          This SA-ToolBox is brought to you by the members of Skull&BonesDAO
         </div>
         <div class="artboard text-center rounded-md p-6 space-y-2">
           <h1 class="text-2xl">Disclaimer</h1>
@@ -30,7 +30,7 @@
             <li>
               <strong>Company</strong> (referred to as either &quot;the
               Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot;
-              in this Disclaimer) refers to Cave SkullnBonesDAO.
+              in this Disclaimer) refers to Cave Skull&BonesDAO.
             </li>
             <li><strong>Service</strong> refers to the Website.</li>
             <li>
@@ -39,7 +39,7 @@
               individual is accessing or using the Service, as applicable.
             </li>
             <li>
-              <strong>Website</strong> refers to Cave SkullnBonesDAO, accessible
+              <strong>Website</strong> refers to Cave Skull&BonesDAO, accessible
               from
               <a
                 href="cave.skullnbones.xyz"
