@@ -196,7 +196,6 @@ export default {
   top: 10%;
   left: 10%;
   background-color: white;
-  width: 80%;
 }
 
 .overlay > div {

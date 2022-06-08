@@ -6,10 +6,10 @@
       alt="sa_assetimage"
     />
     <div class="flex flex-column pt-2 justify-between">
-      <h2 class="text-xl text-right">
+      <h2 class="text-2xl text-right">
         {{ saStore.assets.find((asset) => asset._id === asset_id).name }}
       </h2>
-      <div class="flex flex-col text-right text-sm">
+      <div class="flex flex-col text-right text-sm space-y-1">
         <p>
           <color-badge
             :text="
@@ -38,14 +38,56 @@
         </p>
       </div>
     </div>
-    <div class="flex flex-wrap justify-between space-y-2">
-      <div>
-        <p class="text-xs">
-          {{
-            saStore.assets.find((asset) => asset._id === asset_id).description
-          }}
-        </p>
+    <div>
+      <p class="text-sm my-2">
+        {{ saStore.assets.find((asset) => asset._id === asset_id).description }}
+      </p>
+    </div>
+    <div
+      class="flex flex-col justify-around p-2 shadow-lg rounded-md backdrop-brightness-125"
+    >
+      <h3 class="text-xl text-center">Attribtes</h3>
+      <table class="table-auto table-zebra m-3">
+        <tbody>
+          <tr
+            v-for="(obj, key) in saStore.assets.find(
+              (asset) => asset._id === asset_id
+            ).attributes"
+            :key="obj"
+          >
+            <td class="text-md capitalize text-center">{{ key }}</td>
+            <td class="text-sm capitalize text-center">{{ obj }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="flex">
+      <div
+        class="grow border-2"
+        v-for="(obj, key) in saStore.assets.find(
+          (asset) => asset._id === asset_id
+        ).slots"
+        :key="obj"
+      >
+        <table class="table-auto">
+          <h3 class="text-xl pb-2 capitalize">{{ key }}</h3>
+          <tbody>
+            <tr v-for="element in obj" :key="element" class="">
+              <td class="text-sm capitalize">
+                {{ element.type }}
+              </td>
+              <td class="text-xs capitalize">
+                {{ element.size }}
+              </td>
+              <td class="text-xs capitalize">
+                {{ element.quantity }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </div>
+    <div class="flex flex-wrap justify-between space-y-2">
       <div class="flex flex-col border-2 rounded-md p-2">
         <div class="text-center">
           <h3 class="text-xl pb-2">Attribtes</h3>
