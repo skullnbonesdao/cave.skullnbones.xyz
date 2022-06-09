@@ -2,7 +2,6 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import SolanaWallets from "solana-wallets-vue";
-import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 
 import VueChartkick from "vue-chartkick";
 import "chartkick/chart.js";
