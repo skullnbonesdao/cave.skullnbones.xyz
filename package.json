@@ -16,6 +16,7 @@
     "async-sema": "^3.1.1",
     "core-js": "^3.8.3",
     "daisyui": "^2.15.1",
+    "epic-spinners": "file:src/dependencies/epic-spinners",
     "pinia": "^2.0.14",
     "solana-wallets-vue": "^0.3.2",
     "theme-change": "^2.0.2",
