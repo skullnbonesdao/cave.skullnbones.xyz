@@ -11,7 +11,6 @@
   "dependencies": {
     "@heroicons/vue": "^1.0.6",
     "@nfteyez/sol-rayz": "^0.10.2",
-    "@solana/wallet-adapter-wallets": "^0.16.1",
     "@solana/web3.js": "^1.43.5",
     "async-sema": "^3.1.1",
     "core-js": "^3.8.3",
@@ -21,7 +20,7 @@
     "solana-wallets-vue": "^0.3.2",
     "theme-change": "^2.0.2",
     "tw-elements": "^1.0.0-alpha12",
-    "vue": "^3.2.13",
+    "vue": "^3.2.37",
     "vue-chartjs": "^4.1.1",
     "vue-router": "^4.0.3"
   },
@@ -36,7 +35,7 @@
     "@vue/cli-service": "~5.0.0",
     "@vue/eslint-config-typescript": "^9.1.0",
     "autoprefixer": "^10.4.7",
-    "chart.js": "^3.8.0",
+    "chart.js": "^2.9.4",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
