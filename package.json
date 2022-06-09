@@ -22,7 +22,8 @@
     "tw-elements": "^1.0.0-alpha12",
     "vue": "^3.2.13",
     "vue-chartjs": "^4.1.1",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "vue-spinner": "^1.0.4"
   },
   "devDependencies": {
     "@types/vue-chartkick": "^0.5.1",
@@ -36,7 +37,6 @@
     "@vue/eslint-config-typescript": "^9.1.0",
     "autoprefixer": "^10.4.7",
     "chart.js": "^3.8.0",
-    "epic-spinners": "^1.1.0",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

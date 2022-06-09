@@ -1,14 +1,12 @@
 <template>
-  <hollow-dots-spinner
-    :animation-duration="1000"
-    :dot-size="10"
-    :dots-num="5"
-    color="#591CD4"
-  />
+  <PulseLoader color="#591CD4"></PulseLoader>
 </template>
 
 <script setup>
-import { HollowDotsSpinner } from "epic-spinners";
+import PulseLoader from "vue-spinner/src/PulseLoader.vue";
+import { defineComponent } from "vue";
+
+defineComponent({ PulseLoader });
 </script>
 
 <script>
