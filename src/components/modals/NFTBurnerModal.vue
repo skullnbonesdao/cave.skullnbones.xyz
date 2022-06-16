@@ -12,7 +12,7 @@
         <p class="text-sm text-secondary">
           It will only work if you have the permission burn!
         </p>
-        <h2 class="text-md">How does this work?</h2>
+        <h2 class="text-md pt-2">How does this work?</h2>
         <ul class="steps steps-vertical">
           <li class="step step-primary">Connect you Solana-Wallet</li>
           <li class="step step-primary">Wait for your NFTs to load</li>
@@ -38,6 +38,9 @@
       >
         Continue
       </button>
+      <p class="text-sm text-red-500 pt-2">
+        ⚠️ Burned NFTs are not recoverable ⚠️
+      </p>
     </div>
   </Teleport>
 </template>
