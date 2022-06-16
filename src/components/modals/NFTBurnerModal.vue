@@ -2,16 +2,17 @@
   <Teleport to="body" id="modal">
     <div
       v-if="showModal"
-      class="overlay modal-box shadow-lg max-w-2xl text-center"
+      class="overlay modal-box shadow-2xl max-w-2xl text-center border-2 border-primary"
     >
       <div>
-        <h1 class="text-2xl rounded-md mb-2 bg-base-300">The Plank</h1>
+        <h1 class="text-2xl p-3 rounded-md mb-2 bg-base-300">The Plank</h1>
         <p class="text-sm text-secondary">
           This Tool it built to recover the SOL form NFTs you dont want anymore.
         </p>
         <p class="text-sm text-secondary">
           It will only work if you have the permission burn!
         </p>
+        <div class="divider"></div>
         <h2 class="text-md pt-2">How does this work?</h2>
         <ul class="steps steps-vertical">
           <li class="step step-primary">Connect your Solana-Wallet</li>
@@ -32,15 +33,15 @@
           </li>
         </ul>
       </div>
+      <p class="text-sm text-red-500 p-2">
+        ⚠️ Burned NFTs are not recoverable ⚠️
+      </p>
       <button
         class="btn btn-primary hover:bg-opacity-50"
         @click="$emit('close_info')"
       >
         Continue
       </button>
-      <p class="text-sm text-red-500 pt-2">
-        ⚠️ Burned NFTs are not recoverable ⚠️
-      </p>
     </div>
   </Teleport>
 </template>
