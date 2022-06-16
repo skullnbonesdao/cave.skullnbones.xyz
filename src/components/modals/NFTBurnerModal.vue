@@ -7,7 +7,7 @@
       <div>
         <h1 class="text-2xl p-3 rounded-md mb-2 bg-base-300">The Plank</h1>
         <p class="text-sm text-secondary">
-          This Tool it built to recover the SOL form NFTs you dont want anymore.
+          This Tool is built to recover the SOL form NFTs you dont want anymore.
         </p>
         <p class="text-sm text-secondary">
           It will only work if you have the permission burn!
