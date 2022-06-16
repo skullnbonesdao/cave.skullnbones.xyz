@@ -14,7 +14,7 @@
         </p>
         <h2 class="text-md pt-2">How does this work?</h2>
         <ul class="steps steps-vertical">
-          <li class="step step-primary">Connect you Solana-Wallet</li>
+          <li class="step step-primary">Connect your Solana-Wallet</li>
           <li class="step step-primary">Wait for your NFTs to load</li>
           <li class="step step-primary">
             <div class="flex flex-row space-x-2">
