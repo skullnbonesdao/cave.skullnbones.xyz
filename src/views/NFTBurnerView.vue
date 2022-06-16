@@ -24,13 +24,14 @@
       <content class="bg-base-300 mx-12 pt-5 rounded-box">
         <div class="flex flex-col text-center">
           <p class="text-xl text-red-500">
-            The Plank will <b>destroy</b> your NFT it will not be recoverable!
+            The Plank will <b>destroy</b> your NFT it will
+            <b>not be recoverable</b>!
           </p>
           <p>
             Do use this with caution we advise you to use a separate wallet
             beside your main-wallet.
           </p>
-          <p>Your NFT-SOL-Rent will be recovered!</p>
+          <p class="text-lg">💰 Your NFT-SOL-Rent will be recovered 💰</p>
         </div>
         <div
           v-if="!publicKey"
