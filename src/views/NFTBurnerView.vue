@@ -1,9 +1,13 @@
 <template>
   <MessageModal
-    :show-modal="ref_modalShow"
+    :show-modal="ref_modalShowMessage"
     :message_text="nftburnerstore.message || ''"
-    @close="ref_modalShow = false"
+    @close="ref_modalShowMessage = false"
   ></MessageModal>
+  <NFTBurnerModal
+    :showModal="ref_modalShowInfo"
+    @close_info="ref_modalShowInfo = false"
+  ></NFTBurnerModal>
   <FireElement style="opacity: 0.1"></FireElement>
   <div class="">
     <div class="flex flex-col w-full mt-3">
@@ -56,6 +60,7 @@
 
 <script setup lang="ts">
 import nftburnercard from "@/components/special/NFTBurnerCard.vue";
+import NFTBurnerModal from "@/components/modals/NFTBurnerModal.vue";
 import { nftBurnerStore } from "@/stores/NFTBurnerStore";
 import { useWallet } from "solana-wallets-vue";
 import { WalletMultiButton } from "solana-wallets-vue";
@@ -65,7 +70,9 @@ import FireElement from "@/components/elements/FireElement.vue";
 
 defineComponent({ nftburnercard, MessageModal });
 
-let ref_modalShow = ref(false);
+let ref_modalShowMessage = ref(false);
+let ref_modalShowInfo = ref(true);
+
 const nftburnerstore = nftBurnerStore();
 
 console.log(nftburnerstore.nftArray);
@@ -92,9 +99,9 @@ watch(
   () => nftburnerstore.message,
   async function () {
     if (nftburnerstore.message != "") {
-      ref_modalShow.value = true;
+      ref_modalShowMessage.value = true;
       await new Promise((r) => setTimeout(r, 3000));
-      ref_modalShow.value = false;
+      ref_modalShowMessage.value = false;
       nftburnerstore.message = "";
     }
   }
