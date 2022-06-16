@@ -61,25 +61,25 @@
         </tbody>
       </table>
     </div>
-    <div class="flex">
+    <div class="pt-2 flex space-x-2">
       <div
-        class="grow border-2"
+        class="grow shadow-lg"
         v-for="(obj, key) in saStore.assets.find(
           (asset) => asset._id === asset_id
         ).slots"
         :key="obj"
       >
-        <table class="table-auto">
+        <table class="table-auto table-zebra m-3">
           <h3 class="text-xl pb-2 capitalize">{{ key }}</h3>
           <tbody>
             <tr v-for="element in obj" :key="element" class="">
-              <td class="text-sm capitalize">
+              <td class="text-sm capitalize text-left">
                 {{ element.type }}
               </td>
-              <td class="text-xs capitalize">
+              <td class="text-xs capitalize text-center">
                 {{ element.size }}
               </td>
-              <td class="text-xs capitalize">
+              <td class="text-sm capitalize text-right">
                 {{ element.quantity }}
               </td>
             </tr>
@@ -87,59 +87,13 @@
         </table>
       </div>
     </div>
-    <div class="flex flex-wrap justify-between space-y-2">
-      <div class="flex flex-col border-2 rounded-md p-2">
-        <div class="text-center">
-          <h3 class="text-xl pb-2">Attribtes</h3>
-        </div>
-        <div>
-          <table class="table-auto">
-            <tbody>
-              <tr
-                v-for="(obj, key) in saStore.assets.find(
-                  (asset) => asset._id === asset_id
-                ).attributes"
-                :key="obj"
-              >
-                <td class="text-sm capitalize">{{ key }}</td>
-                <td class="text-xs capitalize text-right">{{ obj }}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="flex flex-col border-2 rounded-md p-2">
-        <div
-          v-for="(obj, key) in saStore.assets.find(
-            (asset) => asset._id === asset_id
-          ).slots"
-          :key="obj"
-        >
-          <div class="text-center">
-            <h3 class="text-xl pb-2 capitalize">{{ key }}</h3>
-          </div>
-          <div>
-            <table class="table-auto">
-              <tbody>
-                <tr v-for="element in obj" :key="element" class="">
-                  <td class="text-sm capitalize">
-                    {{ element.type }}
-                  </td>
-                  <td class="text-xs capitalize">
-                    {{ element.size }}
-                  </td>
-                  <td class="text-xs capitalize">
-                    {{ element.quantity }}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div class="flex flex-col pt-2" v-if="serumMarketData[1]">
-      <div v-for="smData in serumMarketData" :key="smData">
+      <div
+        v-for="smData in serumMarketData"
+        :key="smData"
+        class="shadow-lg space-y-2"
+      >
         <h3 class="text-2xl">
           {{
             saStore.assets

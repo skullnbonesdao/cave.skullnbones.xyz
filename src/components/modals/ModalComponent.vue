@@ -1,6 +1,9 @@
 <template>
   <Teleport to="body" id="modal">
-    <div v-if="showModal" class="overlay modal-box shadow-lg max-w-2xl">
+    <div
+      v-if="showModal"
+      class="overlay modal-box shadow-lg max-w-2xl border-2 border-primary"
+    >
       <ship-modal-element
         :asset_id="asset_id"
         @close="$emit('close')"
