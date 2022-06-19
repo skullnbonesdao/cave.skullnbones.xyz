@@ -17,8 +17,8 @@
         <p class="text-xs">Support my work:</p>
         <p class="text-2xs">BSW9zp3iJUcemTVWN4EThcaF6FxBQqP2wgnapSt1Z5mt</p>
         <p class="text-xs">COPYRIGHT © 2022 SkullnBones, All rights Reserved</p>
-        <p class="text-2xs text-yellow-600">
-          ! Keep in mind this site under active development !
+        <p class="text-2xs text-yellow-700">
+          ! Keep in mind this site is under active development !
         </p>
       </div>
     </div>
