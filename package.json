@@ -9,6 +9,7 @@
     "deploy": "node scripts/gh-pages-deploy.js"
   },
   "dependencies": {
+    "@chenfengyuan/vue-carousel": "^2.0.0",
     "@heroicons/vue": "^1.0.6",
     "@nfteyez/sol-rayz": "^0.10.2",
     "@solana/wallet-adapter-wallets": "^0.15.5",
@@ -22,6 +23,7 @@
     "theme-change": "^2.0.2",
     "tw-elements": "^1.0.0-alpha12",
     "vue": "^3.2.13",
+    "vue-agile": "^2.0.0",
     "vue-chartjs": "^4.1.1",
     "vue-router": "^4.0.3",
     "vue-spinner": "^1.0.4"

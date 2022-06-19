@@ -2,7 +2,9 @@ import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
 import SolanaWallets from "solana-wallets-vue";
-
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import VueAgile from "vue-agile";
 import VueChartkick from "vue-chartkick";
 import "chartkick/chart.js";
 import { createPinia } from "pinia";
@@ -28,6 +30,7 @@ createApp(App)
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   .use(VueChartkick)
+  .use(VueAgile)
   .use(SolanaWallets, walletOptions)
   .use(createPinia())
   .use(router)

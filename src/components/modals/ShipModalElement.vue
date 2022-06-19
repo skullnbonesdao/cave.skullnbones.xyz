@@ -1,10 +1,26 @@
 <template>
   <div>
-    <img
-      class="rounded-md"
-      :src="saStore.assets.find((asset) => asset._id === asset_id).image"
-      alt="sa_assetimage"
-    />
+    <!--    <img
+          class="rounded-md"
+          :src="saStore.assets.find((asset) => asset._id === asset_id).image"
+          alt="sa_assetimage"
+        />-->
+    <agile
+      :autoplay="true"
+      :autoplay-speed="3500"
+      :speed="600"
+      :dots="true"
+      :centerMode="true"
+    >
+      <div
+        class="slide grid place-items-center"
+        v-for="img_src in saStore.assets.find((asset) => asset._id === asset_id)
+          .media.gallery"
+        :key="img_src"
+      >
+        <img class="max-h-64 rounded-md" :src="img_src" alt="sa_asset_image" />
+      </div>
+    </agile>
     <div class="flex flex-column pt-2 justify-between">
       <h2 class="text-2xl text-right">
         {{ saStore.assets.find((asset) => asset._id === asset_id).name }}
@@ -119,13 +135,23 @@
 
 <script setup>
 import { staratlasStore } from "@/stores/staratlas";
-import { defineEmits, defineProps, onMounted, ref, unref } from "vue";
+import {
+  defineComponent,
+  defineEmits,
+  defineProps,
+  onMounted,
+  ref,
+  unref,
+} from "vue";
 import ColorBadge from "@/components/special/ColorBadge";
+
+import { VueAgile } from "vue-agile";
 
 import { WS_StarAtlasMarket } from "@/extra/WS_StarAtlasMarket";
 
 const props = defineProps(["asset_id"]);
 defineEmits("close");
+defineComponent({ VueAgile });
 
 const saStore = staratlasStore();
 const markets = saStore.assets.find(
@@ -173,4 +199,14 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.example-slide {
+  align-items: center;
+  background-color: #666;
+  color: #999;
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: center;
+  min-height: 10rem;
+}
+</style>
