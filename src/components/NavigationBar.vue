@@ -79,7 +79,9 @@
             </li>
           </ul>
         </div>
-        <a class="btn btn-ghost normal-case text-xl"
+        <a
+          class="btn btn-ghost normal-case text-xl"
+          href="https://skullnbones.xyz"
           ><img
             src="@/assets/snb_logo.svg"
             alt="logo"
