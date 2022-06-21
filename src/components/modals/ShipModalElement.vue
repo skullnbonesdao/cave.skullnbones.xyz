@@ -5,53 +5,71 @@
           :src="saStore.assets.find((asset) => asset._id === asset_id).image"
           alt="sa_assetimage"
         />-->
-    <agile
-      :autoplay="true"
-      :autoplay-speed="3500"
-      :speed="600"
-      :dots="true"
-      :centerMode="true"
-    >
-      <div
-        class="slide grid place-items-center"
-        v-for="img_src in saStore.assets.find((asset) => asset._id === asset_id)
-          .media.gallery"
-        :key="img_src"
+    <div class="bg-base-200 p-3 rounded-md shadow-lg">
+      <agile
+        :autoplay="true"
+        :autoplay-speed="3500"
+        :speed="600"
+        :dots="true"
+        :centerMode="true"
       >
-        <img class="max-h-64 rounded-md" :src="img_src" alt="sa_asset_image" />
-      </div>
-    </agile>
-    <div class="flex flex-column pt-2 justify-between">
-      <h2 class="text-2xl text-right">
-        {{ saStore.assets.find((asset) => asset._id === asset_id).name }}
-      </h2>
-      <div class="flex flex-col text-right text-sm space-y-1">
-        <p>
-          <color-badge
-            :text="
-              saStore.assets.find((asset) => asset._id === asset_id).symbol
+        <div
+          class="slide grid place-items-center"
+          v-for="img_src in saStore.assets.find(
+            (asset) => asset._id === asset_id
+          ).media.gallery"
+          :key="img_src"
+        >
+          <img
+            class="max-h-64 rounded-md"
+            :src="img_src"
+            alt="sa_asset_image"
+          />
+        </div>
+      </agile>
+      <div class="flex flex-column pt-2 justify-between">
+        <div>
+          <h2 class="text-2xl text-primary">
+            {{ saStore.assets.find((asset) => asset._id === asset_id).name }}
+          </h2>
+          <a
+            :href="
+              'https://solscan.io/token/' +
+              saStore.assets.find((asset) => asset._id === asset_id).mint
             "
-            :forceUppercase="true"
-          ></color-badge>
-        </p>
-        <p>
-          <color-badge
-            :text="
-              saStore.assets.find((asset) => asset._id === asset_id).attributes
-                .class
-            "
-            :forceUppercase="true"
-          ></color-badge>
-        </p>
-        <p>
-          <color-badge
-            :text="
-              saStore.assets.find((asset) => asset._id === asset_id).attributes
-                .spec
-            "
-            :forceUppercase="true"
-          ></color-badge>
-        </p>
+            class="link text-secondary"
+          >
+            solcan.io</a
+          >
+        </div>
+        <div class="flex flex-col text-right text-sm space-y-1">
+          <p>
+            <color-badge
+              :text="
+                saStore.assets.find((asset) => asset._id === asset_id).symbol
+              "
+              :forceUppercase="true"
+            ></color-badge>
+          </p>
+          <p>
+            <color-badge
+              :text="
+                saStore.assets.find((asset) => asset._id === asset_id)
+                  .attributes.class
+              "
+              :forceUppercase="true"
+            ></color-badge>
+          </p>
+          <p>
+            <color-badge
+              :text="
+                saStore.assets.find((asset) => asset._id === asset_id)
+                  .attributes.spec
+              "
+              :forceUppercase="true"
+            ></color-badge>
+          </p>
+        </div>
       </div>
     </div>
     <div>
@@ -62,7 +80,7 @@
     <div
       class="flex flex-col justify-around p-2 shadow-lg rounded-md backdrop-brightness-125"
     >
-      <h3 class="text-xl text-center">Attribtes</h3>
+      <h3 class="text-xl text-center text-secondary">Attribtes</h3>
       <table class="table-auto table-zebra m-3">
         <tbody>
           <tr
@@ -86,7 +104,7 @@
         :key="obj"
       >
         <table class="table-auto table-zebra m-3">
-          <h3 class="text-xl pb-2 capitalize">{{ key }}</h3>
+          <h3 class="text-xl pb-2 capitalize text-secondary">{{ key }}</h3>
           <tbody>
             <tr v-for="element in obj" :key="element" class="">
               <td class="text-sm capitalize text-left">
@@ -110,7 +128,7 @@
         :key="smData"
         class="shadow-lg space-y-2"
       >
-        <h3 class="text-2xl">
+        <h3 class="text-2xl text-secondary">
           {{
             saStore.assets
               .find((asset) => asset.id === asset_id)
