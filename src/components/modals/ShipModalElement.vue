@@ -33,6 +33,8 @@
             {{ saStore.assets.find((asset) => asset._id === asset_id).name }}
           </h2>
           <a
+            target="_blank"
+            rel="noopener noreferrer"
             :href="
               'https://solscan.io/token/' +
               saStore.assets.find((asset) => asset._id === asset_id).mint
