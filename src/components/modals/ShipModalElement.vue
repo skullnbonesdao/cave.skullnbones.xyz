@@ -28,10 +28,22 @@
         </div>
       </agile>
       <div class="flex flex-column pt-2 justify-between">
-        <div>
+        <div class="flex flex-col">
           <h2 class="text-2xl text-primary">
             {{ saStore.assets.find((asset) => asset._id === asset_id).name }}
           </h2>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            :href="
+              'https://play.staratlas.com/market/' +
+              saStore.assets.find((asset) => asset._id === asset_id).markets[0]
+                .id
+            "
+            class="link text-secondary"
+          >
+            play.staratlas.com</a
+          >
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -73,11 +85,13 @@
           </p>
         </div>
       </div>
-    </div>
-    <div>
-      <p class="text-sm my-2">
-        {{ saStore.assets.find((asset) => asset._id === asset_id).description }}
-      </p>
+      <div>
+        <p class="text-sm my-2">
+          {{
+            saStore.assets.find((asset) => asset._id === asset_id).description
+          }}
+        </p>
+      </div>
     </div>
     <div
       class="flex flex-col justify-around p-2 shadow-lg rounded-md backdrop-brightness-125"
