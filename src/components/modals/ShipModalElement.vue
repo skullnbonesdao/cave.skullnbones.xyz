@@ -103,8 +103,8 @@
             ).attributes"
             :key="obj"
           >
-            <td class="text-md capitalize text-center">{{ key }}</td>
-            <td class="text-sm capitalize text-center">{{ obj }}</td>
+            <td class="text-md capitalize">{{ key }}</td>
+            <td class="text-sm capitalize text-right">{{ obj }}</td>
           </tr>
         </tbody>
       </table>
@@ -119,7 +119,7 @@
         <h3 class="text-xl text-center pb-2 capitalize text-secondary">
           {{ key }}
         </h3>
-        <table class="table w-full table-zebra">
+        <table class="table-auto w-full table-zebra">
           <tbody>
             <tr v-for="element in obj" :key="element" class="">
               <td class="text-sm capitalize text-left">
