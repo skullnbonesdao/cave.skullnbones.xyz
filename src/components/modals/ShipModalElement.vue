@@ -5,7 +5,7 @@
           :src="saStore.assets.find((asset) => asset._id === asset_id).image"
           alt="sa_assetimage"
         />-->
-    <div class="bg-base-200 p-3 rounded-md shadow-lg">
+    <div class="bg-base-300 p-3 pt-10 rounded-md shadow-lg">
       <agile
         :autoplay="true"
         :autoplay-speed="3500"
@@ -93,9 +93,7 @@
         </p>
       </div>
     </div>
-    <div
-      class="flex flex-col justify-around p-2 shadow-lg rounded-md backdrop-brightness-125"
-    >
+    <div class="flex flex-col justify-around p-2 shadow-lg bg-base-300">
       <h3 class="text-xl text-center text-secondary">Attribtes</h3>
       <table class="table-auto table-zebra m-3">
         <tbody>
@@ -111,25 +109,26 @@
         </tbody>
       </table>
     </div>
-    <div class="pt-2 flex space-x-2">
+    <div class="flex flex-col justify-around p-2 bg-base-300 rounded-b-xl">
       <div
-        class="grow shadow-lg"
         v-for="(obj, key) in saStore.assets.find(
           (asset) => asset._id === asset_id
         ).slots"
         :key="obj"
       >
-        <table class="table-auto table-zebra m-3">
-          <h3 class="text-xl pb-2 capitalize text-secondary">{{ key }}</h3>
+        <h3 class="text-xl text-center pb-2 capitalize text-secondary">
+          {{ key }}
+        </h3>
+        <table class="table w-full table-zebra">
           <tbody>
             <tr v-for="element in obj" :key="element" class="">
               <td class="text-sm capitalize text-left">
                 {{ element.type }}
               </td>
-              <td class="text-xs capitalize text-center">
+              <td class="w-5 text-xs uppercase text-center">
                 {{ element.size }}
               </td>
-              <td class="text-sm capitalize text-right">
+              <td class="w-5 text-sm capitalize text-right">
                 {{ element.quantity }}
               </td>
             </tr>
@@ -138,13 +137,13 @@
       </div>
     </div>
 
-    <div class="flex flex-col pt-2" v-if="serumMarketData[1]">
-      <div
-        v-for="smData in serumMarketData"
-        :key="smData"
-        class="shadow-lg space-y-2"
-      >
-        <h3 class="text-2xl text-secondary">
+    <div
+      class="flex flex-col mt-2 p-2 bg-base-300 rounded-xl"
+      v-if="serumMarketData[1]"
+    >
+      <h2 class="text-2xl text-left text-secondary">Markets</h2>
+      <div v-for="smData in serumMarketData" :key="smData" class=" ">
+        <h3 class="text-2xl text-center text-secondary">
           {{
             saStore.assets
               .find((asset) => asset.id === asset_id)
