@@ -119,16 +119,16 @@
         <h3 class="text-xl text-center pb-2 capitalize text-secondary">
           {{ key }}
         </h3>
-        <table class="table-auto w-full table-zebra">
+        <table class="table w-full table-zebra">
           <tbody>
-            <tr v-for="element in obj" :key="element" class="">
-              <td class="text-sm capitalize text-left">
+            <tr v-for="element in obj" :key="element" class="hover">
+              <td class="text-md capitalize text-left">
                 {{ element.type }}
               </td>
-              <td class="w-5 text-xs uppercase text-center">
+              <td class="w-5 text-sm uppercase text-center">
                 {{ element.size }}
               </td>
-              <td class="w-5 text-sm capitalize text-right">
+              <td class="w-5 text-sm capitalize">
                 {{ element.quantity }}
               </td>
             </tr>
