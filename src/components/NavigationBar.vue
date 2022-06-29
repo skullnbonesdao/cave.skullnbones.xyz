@@ -1,13 +1,5 @@
 <template>
   <nav>
-    <!--    <nav class="flex flex-row justify-center space-x-2 bg-white dark:bg-black">
-          <router-link class="router-link" to="/">Home</router-link>
-          <router-link class="router-link" to="/shipsstacked">Score</router-link>
-          <router-link class="router-link" to="/market">Market</router-link>
-          <router-link class="router-link" to="/none">Settings</router-link>
-          <router-link class="router-link" to="/about">About</router-link>
-    
-        </nav>-->
     <div class="navbar">
       <div class="navbar-start">
         <div class="dropdown">
