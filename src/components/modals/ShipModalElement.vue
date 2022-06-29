@@ -7,7 +7,7 @@
         />-->
     <div class="bg-base-300 p-3 pt-10 rounded-md shadow-lg">
       <agile
-        :autoplay="true"
+        :autoplay="false"
         :autoplay-speed="3500"
         :speed="600"
         :dots="true"

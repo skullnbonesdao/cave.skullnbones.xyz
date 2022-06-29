@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-row space-x-4 justify-evenly">
+  <div class="flex sm:flex-row flex-col space-x-4 justify-evenly">
     <div
       v-for="market in marketDataRef"
       :key="market"
