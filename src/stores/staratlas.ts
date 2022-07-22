@@ -5,6 +5,7 @@ import { STARATLASAPIURL } from "@/extra/static/const";
 import { calculateRates } from "@/extra/calculator";
 
 import { WS_StarAtlasMarket } from "@/extra/WS_StarAtlasMarket";
+import { StarAtlasFactory } from "@/connectors/StarAtlasFactory";
 
 export const staratlasStore = defineStore({
   id: "staratlas_store",
@@ -44,7 +45,7 @@ export const staratlasStore = defineStore({
       this.assets.forEach((asset) =>
         asset.markets.forEach((market) => market_addresses.push(market.id))
       );
-      console.log(market_addresses);
+      StarAtlasFactory.getScoreAPR(market_addresses);
 
       await this.websocket.setup(market_addresses, this.marketCallback);
     },

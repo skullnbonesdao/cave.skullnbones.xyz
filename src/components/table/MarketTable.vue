@@ -26,7 +26,6 @@ const is_loading = ref(true);
 
 onMounted(async () => {
   await saStore.fetchData();
-  console.log(saStore.asset_types);
   await saStore.initWebSocket();
   saStore.sortData("vwap", false, 0);
   is_loading.value = false;

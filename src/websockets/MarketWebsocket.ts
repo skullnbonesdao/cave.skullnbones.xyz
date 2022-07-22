@@ -44,7 +44,6 @@ export class MarketWebsocket {
 
     this.ws.onmessage = (event: MessageEvent) => {
       const new_market_data = Convert.toMarketLevel1(event.data);
-
       if (new_market_data.type === "quote") {
         if (
           this.markets.value.find(

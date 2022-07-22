@@ -144,14 +144,27 @@
 
 <script setup lang="ts">
 import { staratlasStore } from "@/stores/staratlas";
-import { ref, unref } from "vue";
+import { onMounted, ref, unref } from "vue";
 import TableAssetBadge from "@/components/table/elements/TableAssetBadge.vue";
 import TableAssetElement from "@/components/table/elements/TableAssetElement.vue";
 import TableElementHeaderSort from "@/components/table/elements/TableElementHeaderSort.vue";
+import { StarAtlasFactory } from "@/connectors/StarAtlasFactory";
 
 const saStore = staratlasStore();
 let ref_assetID = ref("");
 let ref_modalShow = ref(false);
+
+onMounted(async () => {
+  console.log("Ships Mounted!");
+  await saStore.fetchData();
+  const market_addresses: string[] = [];
+  saStore.assets
+    .filter((asset) => asset.attributes.itemType == "ship")
+    .forEach((asset) => {
+      market_addresses.push(asset.mint);
+    });
+  await StarAtlasFactory.getScoreAPR(market_addresses);
+});
 
 function clk_tableRow(event: string) {
   console.log(event);

@@ -53,7 +53,7 @@
             "
             class="link text-secondary"
           >
-            solcan.io</a
+            solscan.io</a
           >
         </div>
         <div class="flex flex-col text-right text-sm space-y-1">
