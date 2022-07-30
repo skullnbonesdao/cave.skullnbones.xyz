@@ -28,11 +28,6 @@ export const nftBurnerStore = defineStore({
     message: {},
   }),
   actions: {
-    helloWorld() {
-      console.log("HELLO NFT");
-      const { publicKey } = useWallet();
-      console.log(publicKey.value?.toBase58());
-    },
     async fetchNFTs(wallet_address: string) {
       console.log("WalletAddress:" + wallet_address);
 
